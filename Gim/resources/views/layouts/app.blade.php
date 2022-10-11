@@ -16,14 +16,25 @@
 
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a href="{{route('login.create')}}" class="nav-link active" aria-current="page">Login</a>
+                    <a href="/" class="nav-link" aria-current="page">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{route('register.index')}}" class="nav-link" aria-current="page">Registro</a>
-                </li>
-                <li>
-                    <a href="{{route('login.destroy')}}" class="nav-link" aria-current="page">Logout</a>
-                </li>
+                @guest
+                    <li class="nav-item">
+                        <a href="{{route('login.create')}}" class="nav-link active" aria-current="page">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('register.index')}}" class="nav-link" aria-current="page">Registro</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a href="{{route('login.index')}}" class="nav-link" aria-current="page">Perfil</a>
+                    </li>
+                    <li>
+                        <a href="{{route('login.destroy')}}" class="nav-link" aria-current="page">Logout</a>
+                    </li>
+                @endguest
+                
+                
             </ul>
         </div>
         

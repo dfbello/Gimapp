@@ -9,7 +9,7 @@
         @csrf
         <h1 class="h3 mb-3 fw-normal">Sign in</h1>
         <div class="form-floating w-50 m-auto">
-            <input type="email" class="form-control w-" id="email" name="email" placeholder="ingrese un correo">
+            <input type="email" class="form-control w-" id="email" name="email" placeholder="ingrese un correo" value="{{old('email')}}">
             <label for="email"> Correo electronico</label>
         </div>
         <div class="form-floating w-50 m-auto mt-2">
