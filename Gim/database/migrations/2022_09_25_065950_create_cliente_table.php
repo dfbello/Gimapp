@@ -13,7 +13,7 @@ class CreateClienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('cliente', function (Blueprint $table) {
+        Schema::create('clientes', function (Blueprint $table) {
             $table->integer('Clave_Cliente')->primary();
             $table->string('Nombre_Cliente', 100)->nullable();
             $table->bigInteger('Telefono_Cliente')->nullable();

@@ -16,10 +16,13 @@
 
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a href="{{route('login.index')}}" class="nav-link active" aria-current="page">Login</a>
+                    <a href="{{route('login.create')}}" class="nav-link active" aria-current="page">Login</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{route('register.index')}}" class="nav-link" aria-current="page">Registro</a>
+                </li>
+                <li>
+                    <a href="{{route('login.destroy')}}" class="nav-link" aria-current="page">Logout</a>
                 </li>
             </ul>
         </div>

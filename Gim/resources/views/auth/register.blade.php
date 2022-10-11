@@ -39,7 +39,7 @@
                 <option value="trimestral">Trimestral</option>
                 <option value="mensual">Mensual</option>
             </select>
-            <label for="contrasenia"> Selecione su plan</label>
+            <label for="plan"> Selecione su plan</label>
         </div>
         <div class="form-floating w-50 m-auto mt-2">
             <input type="password" class="form-control" id="password" name="password" placeholder="ingrese su contraseña">

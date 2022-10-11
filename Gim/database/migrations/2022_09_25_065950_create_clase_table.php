@@ -13,7 +13,7 @@ class CreateClaseTable extends Migration
      */
     public function up()
     {
-        Schema::create('clase', function (Blueprint $table) {
+        Schema::create('clases', function (Blueprint $table) {
             $table->integer('Clave_Clase')->primary();
             $table->string('Descripcion_Clase', 100)->nullable();
             $table->string('Horario_Clase', 50)->nullable();
