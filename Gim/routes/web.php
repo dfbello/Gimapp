@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AsignarrutinaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/asignarrutina', [App\Http\Controllers\AsignarrutinaController::class, 'index'])->name('asignarRutina');
+Route::post('/asignarrutina', [App\Http\Controllers\AsignarrutinaController::class, 'store'])->name('asignarRutina.store');
