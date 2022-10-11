@@ -13,7 +13,7 @@ class CreateAdministradorTable extends Migration
      */
     public function up()
     {
-        Schema::create('administrador', function (Blueprint $table) {
+        Schema::create('administradors', function (Blueprint $table) {
             $table->integer('Clave_Administrador')->primary();
             $table->string('Nombre_Administrador', 100)->nullable();
             $table->bigInteger('Telefono_Administrador')->nullable();

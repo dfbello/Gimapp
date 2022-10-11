@@ -15,7 +15,7 @@ class AddForeignKeysToClaseTable extends Migration
     {
         Schema::table('clases', function (Blueprint $table) {
             $table->foreign(['Clave_ClienteFK2'], 'fk_fClienteFK2')->references(['Clave_Cliente'])->on('clientes');
-            $table->foreign(['Clave_EntrenadorFK1'], 'fk_fCEntrenadorFK1')->references(['Clave_Entrenador'])->on('entrenador');
+            $table->foreign(['Clave_EntrenadorFK1'], 'fk_fCEntrenadorFK1')->references(['Clave_Entrenador'])->on('entrenadors');
         });
     }
 

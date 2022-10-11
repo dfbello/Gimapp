@@ -13,7 +13,7 @@ class CreateEntrenadorTable extends Migration
      */
     public function up()
     {
-        Schema::create('entrenador', function (Blueprint $table) {
+        Schema::create('entrenadors', function (Blueprint $table) {
             $table->integer('Clave_Entrenador')->primary();
             $table->string('Nombre_Entrenador', 100)->nullable();
             $table->bigInteger('Telefono_Entrenador')->nullable();
