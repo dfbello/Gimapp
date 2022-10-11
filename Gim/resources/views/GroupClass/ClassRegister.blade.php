@@ -49,6 +49,18 @@
         </div>
 
         <button class="w-50 btn btn-lg btn-primary m-auto mt-3">Registrar clase</button>
+        
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>
+                            {{$error}}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </form>
     
     

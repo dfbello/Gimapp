@@ -15,7 +15,9 @@ class groupClassController extends Controller
      */
     public function index()
     {
-        return "hola";
+        $timestamp = time();
+        $curr_date = date("d/m/Y", $timestamp);
+        return "hola" . $curr_date;
     }
 
     /**
@@ -38,6 +40,17 @@ class groupClassController extends Controller
      */
     public function store(Request $request)
     {
+        #$timestamp = time();
+        #date_default_timezone_set('America/Bogota');
+        #$curr_date = date("d/m/Y h:i a", $timestamp);
+        $validaData = $request->validate([
+            'nombre' => 'required|min:2|string',
+            'descripcion' => 'required|min:5|string',
+            'cupos' => 'required|between:5,60|integer',
+            'datetime' => 'required|after:now',
+            'duracion' => 'required|between:5,180|integer'
+        ]);
+
         $clase = new GroupClass();
         $clase -> clave = $request -> get('clave');
         $clase -> descripcion_clase = $request -> get('nombre');
