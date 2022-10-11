@@ -4,17 +4,22 @@
 @section('content')
 
 <div class="form-group-class w-100 m-auto mt-3">
-    <form action="" method = "POST">
-
+    <form action="/group_class" method = "POST">
+    @csrf
         <h1 class="h3 mb-3 fw-normal">Registrar Clase Grupal</h1>
 
         <div class="form-floating w-50 m-auto">
-            <input type="text" class="form-control w-" id="nombre" name = "nombre"  placeholder="ingrese un correo">
+            <input type="number" class="form-control w-" id="clave" name = "clave"  placeholder="">
+            <label for="clave"> key</label>
+        </div>
+
+        <div class="form-floating w-50 m-auto">
+            <input type="text" class="form-control w-" id="nombre" name = "nombre"  placeholder="">
             <label for="nombre"> Nombre de la clase</label>
         </div>
 
         <div class="form-floating w-50 m-auto">
-            <input type="text" class="form-control w-" id="descripcion" name = "descripcion" placeholder="ingrese un correo">
+            <input type="text" class="form-control w-" id="descripcion" name = "descripcion" placeholder="">
             <label for="descripcion"> Descripción </label>
         </div>
 
@@ -45,6 +50,7 @@
 
         <button class="w-50 btn btn-lg btn-primary m-auto mt-3">Registrar clase</button>
     </form>
+    
     
 </div>
     

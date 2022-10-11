@@ -15,7 +15,7 @@ class groupClassController extends Controller
      */
     public function index()
     {
-        
+        return "hola";
     }
 
     /**
@@ -38,7 +38,12 @@ class groupClassController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $clase = new GroupClass();
+        $clase -> clave = $request -> get('clave');
+        $clase -> descripcion_clase = $request -> get('nombre');
+
+        $clase -> save();
+        return redirect('group_class');
     }
 
     /**
