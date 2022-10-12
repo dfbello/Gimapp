@@ -26,6 +26,8 @@ class CreateClienteTable extends Migration
             $table->float('Estatura_Cliente', 10, 0)->nullable();
             $table->float('IMC_Cliente', 10, 0)->nullable();
             $table->string('Objetivos_Cliente', 200)->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -36,6 +38,6 @@ class CreateClienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cliente');
+        Schema::dropIfExists('clientes');
     }
 }

@@ -13,7 +13,7 @@ class AddForeignKeysToRutinaTable extends Migration
      */
     public function up()
     {
-        Schema::table('rutina', function (Blueprint $table) {
+        Schema::table('rutinas', function (Blueprint $table) {
             $table->foreign(['Clave_ClienteFK1'], 'fk_fClienteFK1')->references(['Clave_Cliente'])->on('clientes');
         });
     }
@@ -25,7 +25,7 @@ class AddForeignKeysToRutinaTable extends Migration
      */
     public function down()
     {
-        Schema::table('rutina', function (Blueprint $table) {
+        Schema::table('rutinas', function (Blueprint $table) {
             $table->dropForeign('fk_fClienteFK1');
         });
     }

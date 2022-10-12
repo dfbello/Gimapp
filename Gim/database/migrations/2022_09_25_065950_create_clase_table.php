@@ -14,11 +14,16 @@ class CreateClaseTable extends Migration
     public function up()
     {
         Schema::create('clases', function (Blueprint $table) {
-            $table->integer('Clave_Clase')->primary();
+            $table->integer('Clave_Clase')->autoIncrement();
+            $table->string('Nombre', 50)->nullable();
             $table->string('Descripcion_Clase', 100)->nullable();
-            $table->string('Horario_Clase', 50)->nullable();
-            $table->integer('Clave_ClienteFK2')->nullable()->index('fk_fClienteFK2');
+            $table->integer('Cupos')->nullable();
+            $table->timestamp('Horario_Clase')->nullable();
+            $table->integer('Duracion')->nullable();
             $table->integer('Clave_EntrenadorFK1')->nullable()->index('fk_fCEntrenadorFK1');
+            $table->integer('Clave_ClienteFK2')->nullable()->index('fk_fClienteFK2');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -29,6 +34,6 @@ class CreateClaseTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clase');
+        Schema::dropIfExists('clases');
     }
 }

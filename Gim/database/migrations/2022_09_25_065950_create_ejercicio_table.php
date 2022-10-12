@@ -13,12 +13,14 @@ class CreateEjercicioTable extends Migration
      */
     public function up()
     {
-        Schema::create('ejercicio', function (Blueprint $table) {
+        Schema::create('ejercicios', function (Blueprint $table) {
             $table->integer('Clave_Ejercicio')->primary();
             $table->string('Descripcion_Ejercicio', 100)->nullable();
             $table->integer('Series_Ejercicio')->nullable();
             $table->integer('Repeticiones_Ejercicio')->nullable();
             $table->integer('Clave_RecursoFK1')->nullable()->index('fk_fRecursoFK1');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -29,6 +31,6 @@ class CreateEjercicioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ejercicio');
+        Schema::dropIfExists('ejercicios');
     }
 }
