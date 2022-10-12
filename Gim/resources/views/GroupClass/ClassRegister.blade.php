@@ -37,7 +37,7 @@
             <select name="coach" id="coach" class= "form-control w-">
                 @foreach($Entrenadores as $entrenador)
 
-                <option value="{{$entrenador -> Nombre_Entrenador}}">{{$entrenador -> Nombre_Entrenador}}</option>
+                <option value="{{$entrenador -> Clave_Entrenador}}">{{$entrenador -> Nombre_Entrenador}}</option>
                 @endforeach
             </select>
             <label for="duracion">Entrenador asignado</label>

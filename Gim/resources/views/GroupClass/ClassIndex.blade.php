@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col">
-        <a class="btn btn-primary" href="/expense_report/create">Create a new report</a>
+        <a class="btn btn-primary" href="/group_class/create">Nueva clase grupal</a>
     </div>
 </div>
 
@@ -17,19 +17,24 @@
     <div class="col">
         <table class="table">
             <tr>
-                <td>Titulo</td>
-                <td>CC</td>
-                <td>Valor</td>
-                <td>Editar registro</td>
+                <td>Nombre clase</td>
+                <td>Descripción</td>
+                <td>Cupos</td>
+                <td>Horario</td>
+                <td>Duracion (minutos)</td>
+                <td>Entrenador</td>
             </tr>
-            <!--@foreach($expenseReports as $expenseReport)-->
+            @foreach($clases as $clase)
             
             <tr>
-                <td><!--{{ $expenseReport->title }}--></td>
-                <td><!--{{ $expenseReport->cedula }}--></td>
-                <td><!--{{ $expenseReport->valor }}--></td>
+                <td>{{ $clase->Nombre_Clase }}</td>
+                <td>{{ $clase->Descripcion_Clase }}</td>
+                <td>{{ $clase->Cupos_Clase }}</td>
+                <td>{{ $clase->Horario_Clase }}</td>
+                <td>{{ $clase->Duracion }}</td>
+                <td>{{ $clase->Clave_EntrenadorFK1 }}</td>
             </tr>
-           <!-- @endforeach -->
+           @endforeach 
         </table>
     </div>
 </div>

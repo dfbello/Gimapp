@@ -15,7 +15,11 @@ class groupClassController extends Controller
      */
     public function index()
     {
-        return view('GroupClass.ClassIndex');
+        
+        return view('GroupClass.ClassIndex', [
+            'clases' => Clase::all()
+        ]);
+
     }
 
     /**
@@ -43,12 +47,17 @@ class groupClassController extends Controller
             'nombre' => 'required|min:2|string',
             'descripcion' => 'required|min:5|string',
             'cupos' => 'required|between:5,60|integer',
-            'datetime' => 'required|after:now',
+            'datetime' => 'required',
             'duracion' => 'required|between:5,180|integer'
         ]);
 
         $clase = new Clase();
-        $clase -> descripcion_clase = $request -> get('nombre');
+        $clase -> Nombre_Clase = $request -> get('nombre');
+        $clase -> Descripcion_Clase = $request -> get('descripcion');
+        $clase -> Cupos_Clase = $request -> get('cupos');
+        $clase -> Horario_Clase = $request -> get('datetime');
+        $clase -> Duracion = $request -> get('duracion');
+        $clase -> Clave_EntrenadorFK1 = $request -> get('coach');
 
         $clase -> save();
         return redirect('group_class');
