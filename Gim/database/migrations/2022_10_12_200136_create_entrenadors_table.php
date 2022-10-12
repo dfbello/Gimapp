@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEntrenadorTable extends Migration
+class CreateEntrenadorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -23,8 +23,7 @@ class CreateEntrenadorTable extends Migration
             $table->string('Contrasenia_Entrenador', 200)->nullable();
             $table->string('Descripcion_Entrenador', 200)->nullable();
             $table->string('Horario_Entrenador', 200)->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->timestamps();
         });
     }
 

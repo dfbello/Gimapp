@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeysToRutinaTable extends Migration
+class CreateAsignarclasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddForeignKeysToRutinaTable extends Migration
      */
     public function up()
     {
-        Schema::table('rutinas', function (Blueprint $table) {
-            $table->foreign(['Clave_ClienteFK1'], 'fk_fClienteFK1')->references(['Clave_Cliente'])->on('clientes');
+        Schema::create('asignarclases', function (Blueprint $table) {
+            $table->integer('Clave_ClaseFK1')->nullable()->index('fk_fClaseFK1');
+            $table->integer('Clave_ClienteFK2')->nullable()->index('fk_fClienteFK2');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddForeignKeysToRutinaTable extends Migration
      */
     public function down()
     {
-        Schema::table('rutinas', function (Blueprint $table) {
-            $table->dropForeign('fk_fClienteFK1');
-        });
+        Schema::dropIfExists('asignarclases');
     }
 }

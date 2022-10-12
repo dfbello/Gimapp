@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRecursoTable extends Migration
+class CreateRecursosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -20,8 +20,7 @@ class CreateRecursoTable extends Migration
             $table->string('QR_Recurso', 50)->nullable();
             $table->string('Nombre_Recurso', 200)->nullable();
             $table->integer('Cantidad_Recurso')->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->timestamps();
         });
     }
 
