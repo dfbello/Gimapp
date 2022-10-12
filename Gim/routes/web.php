@@ -20,3 +20,8 @@ Route::get('/', function () {
 
 Route::get('/asignarrutina', [App\Http\Controllers\AsignarrutinaController::class, 'index'])->name('asignarRutina');
 Route::post('/asignarrutina', [App\Http\Controllers\AsignarrutinaController::class, 'store'])->name('asignarRutina.store');
+
+Route::get('/verrutinas', [App\Http\Controllers\VerrutinaController::class, 'viewRutinas'])->name('verrutinas');
+Route::get('/verrutinas/{id}/editar', [App\Http\Controllers\ModificarrutinaController::class, 'editarRutina'])->name('modificarRutina');
+Route::patch('/verrutinas/{id}', [App\Http\Controllers\ModificarrutinaController::class, 'actualizarRutina'])->name('actualizarRutina');
+Route::delete('verrutinas/{id}', [App\Http\Controllers\VerrutinaController::class, 'eliminarRutina'])->name('eliminarRutina');
