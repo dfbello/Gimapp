@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entrenador;
-use App\Models\GroupClass;
+use App\Models\Clase;
 use Illuminate\Http\Request;
 
 class groupClassController extends Controller
@@ -16,8 +16,6 @@ class groupClassController extends Controller
     public function index()
     {
         return view('GroupClass.ClassIndex');
-
-        
     }
 
     /**
@@ -49,8 +47,7 @@ class groupClassController extends Controller
             'duracion' => 'required|between:5,180|integer'
         ]);
 
-        $clase = new GroupClass();
-        $clase -> clave = $request -> get('clave');
+        $clase = new Clase();
         $clase -> descripcion_clase = $request -> get('nombre');
 
         $clase -> save();

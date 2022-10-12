@@ -9,11 +9,6 @@
         <h1 class="h3 mb-3 fw-normal">Registrar Clase Grupal</h1>
 
         <div class="form-floating w-50 m-auto">
-            <input type="number" class="form-control w-" id="clave" name = "clave"  placeholder="">
-            <label for="clave"> key</label>
-        </div>
-
-        <div class="form-floating w-50 m-auto">
             <input type="text" class="form-control w-" id="nombre" name = "nombre"  placeholder="">
             <label for="nombre"> Nombre de la clase</label>
         </div>
