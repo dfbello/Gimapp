@@ -13,7 +13,7 @@ class CreateAdministradorTable extends Migration
      */
     public function up()
     {
-        Schema::create('administrador', function (Blueprint $table) {
+        Schema::create('administradors', function (Blueprint $table) {
             $table->integer('Clave_Administrador')->primary();
             $table->string('Nombre_Administrador', 100)->nullable();
             $table->bigInteger('Telefono_Administrador')->nullable();
@@ -21,6 +21,8 @@ class CreateAdministradorTable extends Migration
             $table->string('Correo_Administrador', 50)->nullable();
             $table->string('Edad_Administrador', 200)->nullable();
             $table->string('Contrasenia_Administrador', 200)->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -31,6 +33,6 @@ class CreateAdministradorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('administrador');
+        Schema::dropIfExists('administradors');
     }
 }

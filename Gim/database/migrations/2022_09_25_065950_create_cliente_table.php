@@ -13,7 +13,7 @@ class CreateClienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('cliente', function (Blueprint $table) {
+        Schema::create('clientes', function (Blueprint $table) {
             $table->integer('Clave_Cliente')->primary();
             $table->string('Nombre_Cliente', 100)->nullable();
             $table->bigInteger('Telefono_Cliente')->nullable();
@@ -26,6 +26,8 @@ class CreateClienteTable extends Migration
             $table->float('Estatura_Cliente', 10, 0)->nullable();
             $table->float('IMC_Cliente', 10, 0)->nullable();
             $table->string('Objetivos_Cliente', 200)->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -36,6 +38,6 @@ class CreateClienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cliente');
+        Schema::dropIfExists('clientes');
     }
 }
