@@ -16,8 +16,7 @@ class CreateAsignadosTable extends Migration
         Schema::create('asignados', function (Blueprint $table) {
             $table->integer('Clave_RutinaFK1')->nullable()->index('fk_fRutinaFK1');
             $table->integer('Clave_EjercicioFK2')->nullable()->index('fk_fCEjercicioFK2');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->timestamps();
         });
     }
 
