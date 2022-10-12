@@ -16,7 +16,7 @@ class AsignarrutinaController extends Controller
     public function index()
     {
         //
-        $datos['clientes'] = DB::select('select * from cliente');
+        $datos['clientes'] = DB::select('select * from clientes');
         $datos['ejercicios'] = DB::select('select * from ejercicio');
         //return response()->json($clientes);
         return view('asignarrutina', $datos);
