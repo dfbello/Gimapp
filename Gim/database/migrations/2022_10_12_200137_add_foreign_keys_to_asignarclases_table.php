@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeysToClaseTable extends Migration
+class AddForeignKeysToAsignarclasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddForeignKeysToClaseTable extends Migration
      */
     public function up()
     {
-        Schema::table('clases', function (Blueprint $table) {
+        Schema::table('asignarclases', function (Blueprint $table) {
             $table->foreign(['Clave_ClienteFK2'], 'fk_fClienteFK2')->references(['Clave_Cliente'])->on('clientes');
-            $table->foreign(['Clave_EntrenadorFK1'], 'fk_fCEntrenadorFK1')->references(['Clave_Entrenador'])->on('entrenadors');
+            $table->foreign(['Clave_ClaseFK1'], 'fk_fClaseFK1')->references(['Clave_Clase'])->on('clases');
         });
     }
 
@@ -26,9 +26,9 @@ class AddForeignKeysToClaseTable extends Migration
      */
     public function down()
     {
-        Schema::table('clases', function (Blueprint $table) {
+        Schema::table('asignarclases', function (Blueprint $table) {
             $table->dropForeign('fk_fClienteFK2');
-            $table->dropForeign('fk_fCEntrenadorFK1');
+            $table->dropForeign('fk_fClaseFK1');
         });
     }
 }

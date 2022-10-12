@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClienteTable extends Migration
+class CreateClientesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -26,8 +26,7 @@ class CreateClienteTable extends Migration
             $table->float('Estatura_Cliente', 10, 0)->nullable();
             $table->float('IMC_Cliente', 10, 0)->nullable();
             $table->string('Objetivos_Cliente', 200)->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->timestamps();
         });
     }
 

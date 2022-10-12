@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRutinaTable extends Migration
+class CreateRutinasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,8 +18,7 @@ class CreateRutinaTable extends Migration
             $table->string('Fecha_Rutina', 100)->nullable();
             $table->string('Hora_Rutina', 10)->nullable();
             $table->integer('Clave_ClienteFK1')->nullable()->index('fk_fClienteFK1');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->timestamps();
         });
     }
 
