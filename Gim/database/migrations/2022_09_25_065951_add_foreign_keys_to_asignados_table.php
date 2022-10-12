@@ -14,8 +14,8 @@ class AddForeignKeysToAsignadosTable extends Migration
     public function up()
     {
         Schema::table('asignados', function (Blueprint $table) {
-            $table->foreign(['Clave_RutinaFK1'], 'fk_fRutinaFK1')->references(['Clave_Rutina'])->on('rutina');
-            $table->foreign(['Clave_EjercicioFK2'], 'fk_fCEjercicioFK2')->references(['Clave_Ejercicio'])->on('ejercicio');
+            $table->foreign(['Clave_RutinaFK1'], 'fk_fRutinaFK1')->references(['Clave_Rutina'])->on('rutinas');
+            $table->foreign(['Clave_EjercicioFK2'], 'fk_fCEjercicioFK2')->references(['Clave_Ejercicio'])->on('ejercicios');
         });
     }
 

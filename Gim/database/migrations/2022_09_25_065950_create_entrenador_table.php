@@ -13,7 +13,7 @@ class CreateEntrenadorTable extends Migration
      */
     public function up()
     {
-        Schema::create('entrenador', function (Blueprint $table) {
+        Schema::create('entrenadors', function (Blueprint $table) {
             $table->integer('Clave_Entrenador')->primary();
             $table->string('Nombre_Entrenador', 100)->nullable();
             $table->bigInteger('Telefono_Entrenador')->nullable();
@@ -23,6 +23,8 @@ class CreateEntrenadorTable extends Migration
             $table->string('Contrasenia_Entrenador', 200)->nullable();
             $table->string('Descripcion_Entrenador', 200)->nullable();
             $table->string('Horario_Entrenador', 200)->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -33,6 +35,6 @@ class CreateEntrenadorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entrenador');
+        Schema::dropIfExists('entrenadors');
     }
 }

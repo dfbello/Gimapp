@@ -13,8 +13,8 @@ class AddForeignKeysToEjercicioTable extends Migration
      */
     public function up()
     {
-        Schema::table('ejercicio', function (Blueprint $table) {
-            $table->foreign(['Clave_RecursoFK1'], 'fk_fRecursoFK1')->references(['Clave_Recurso'])->on('recurso');
+        Schema::table('ejercicios', function (Blueprint $table) {
+            $table->foreign(['Clave_RecursoFK1'], 'fk_fRecursoFK1')->references(['Clave_Recurso'])->on('recursos');
         });
     }
 
@@ -25,7 +25,7 @@ class AddForeignKeysToEjercicioTable extends Migration
      */
     public function down()
     {
-        Schema::table('ejercicio', function (Blueprint $table) {
+        Schema::table('ejercicios', function (Blueprint $table) {
             $table->dropForeign('fk_fRecursoFK1');
         });
     }
