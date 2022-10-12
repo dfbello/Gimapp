@@ -15,9 +15,9 @@ class groupClassController extends Controller
      */
     public function index()
     {
-        $timestamp = time();
-        $curr_date = date("d/m/Y", $timestamp);
-        return "hola" . $curr_date;
+        return view('GroupClass.ClassIndex');
+
+        
     }
 
     /**
@@ -40,9 +40,7 @@ class groupClassController extends Controller
      */
     public function store(Request $request)
     {
-        #$timestamp = time();
-        #date_default_timezone_set('America/Bogota');
-        #$curr_date = date("d/m/Y h:i a", $timestamp);
+        
         $validaData = $request->validate([
             'nombre' => 'required|min:2|string',
             'descripcion' => 'required|min:5|string',
