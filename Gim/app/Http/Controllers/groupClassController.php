@@ -17,7 +17,8 @@ class groupClassController extends Controller
     {
         
         return view('GroupClass.ClassIndex', [
-            'clases' => Clase::all()
+            'clases' => Clase::all(),
+            'entrenador' => Entrenador::all()
         ]);
 
     }

@@ -32,7 +32,7 @@
                 <td>{{ $clase->Cupos_Clase }}</td>
                 <td>{{ $clase->Horario_Clase }}</td>
                 <td>{{ $clase->Duracion }}</td>
-                <td>{{ $clase->Clave_EntrenadorFK1 }}</td>
+                <td>{{ $clase->Clave_EntrenadorFK1}}</td>
             </tr>
            @endforeach 
         </table>
