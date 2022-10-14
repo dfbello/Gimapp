@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Rutina;
 
 class rutinaController extends Controller
 {
@@ -13,7 +14,9 @@ class rutinaController extends Controller
      */
     public function index()
     {
-        //
+        return view('rutina.index', [
+            'rutinas' => Rutina::all()
+        ]);
     }
 
     /**
