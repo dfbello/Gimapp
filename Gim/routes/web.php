@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/recursos', 'App\Http\Controllers\RecursoController');
+Route::get('/recursos/{Clave_Recurso}/confirmDelete', 'App\Http\Controllers\RecursoController@confirmDelete');
