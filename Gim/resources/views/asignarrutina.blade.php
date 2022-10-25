@@ -8,7 +8,7 @@
                 {{session('error')}}
             </div>
         @endif
-    <form action="{{route('asignarRutina.store')}}" method="POST">
+    <form action="{{route('rutina.store')}}" method="POST">
     @csrf 
     <input type="text" name="Clave_Rutina" id="Clave_Rutina" placeholder="ID">
 
