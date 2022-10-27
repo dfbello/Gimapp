@@ -15,7 +15,7 @@ class CreateAsignarclasesTable extends Migration
     {
         Schema::create('asignarclases', function (Blueprint $table) {
             $table->integer('Clave_ClaseFK1')->nullable()->index('fk_fClaseFK1');
-            $table->integer('Clave_ClienteFK2')->nullable()->index('fk_fClienteFK2');
+            $table->integer('Clave_ClienteFK3')->nullable()->index('fk_fClienteFK3');
             $table->timestamps();
         });
     }
