@@ -42,4 +42,16 @@ class SessionsController extends Controller
 
         return redirect() -> to('/');
     }
+
+    public function recuperarContrasena(){
+        return view('auth.recuperacion_contrasena');
+    }
+
+    public function enviarNuevaContrasena(Request $request){
+        $validaData = $request->validate([
+            'email' => 'required|email|comfirmed'
+        ]);
+
+        return redirect('auth.login');
+    }
 }

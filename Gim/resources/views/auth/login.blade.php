@@ -18,7 +18,7 @@
         </div>
 
         
-        <p class="text-danger">
+        <p class="text-danger text-center">
             @foreach ($errors->all() as $error)
                 {{$error}}
             @endforeach
