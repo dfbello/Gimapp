@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AsignarrutinaController;
+use App\Http\Controllers\ClaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('/verrutinas', [App\Http\Controllers\VerrutinaController::class, 'vie
 Route::get('/verrutinas/{id}/editar', [App\Http\Controllers\ModificarrutinaController::class, 'editarRutina'])->name('modificarRutina');
 Route::patch('/verrutinas/{id}', [App\Http\Controllers\ModificarrutinaController::class, 'actualizarRutina'])->name('actualizarRutina');
 Route::delete('verrutinas/{id}', [App\Http\Controllers\VerrutinaController::class, 'eliminarRutina'])->name('eliminarRutina');
+
+Route::resource('/Clases', App\Http\Controllers\ClaseController::class);
