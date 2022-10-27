@@ -14,7 +14,7 @@ class AddForeignKeysToAsignarclasesTable extends Migration
     public function up()
     {
         Schema::table('asignarclases', function (Blueprint $table) {
-            $table->foreign(['Clave_ClienteFK2'], 'fk_fClienteFK2')->references(['Clave_Cliente'])->on('clientes');
+            $table->foreign(['Clave_ClienteFK3'], 'fk_fClienteFK3')->references(['Clave_Cliente'])->on('clientes');
             $table->foreign(['Clave_ClaseFK1'], 'fk_fClaseFK1')->references(['Clave_Clase'])->on('clases');
         });
     }
@@ -27,7 +27,7 @@ class AddForeignKeysToAsignarclasesTable extends Migration
     public function down()
     {
         Schema::table('asignarclases', function (Blueprint $table) {
-            $table->dropForeign('fk_fClienteFK2');
+            $table->dropForeign('fk_fClienteFK3');
             $table->dropForeign('fk_fClaseFK1');
         });
     }
