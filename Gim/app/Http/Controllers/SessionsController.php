@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SessionsController extends Controller
 {
 
     public function index(){
-        return view('perfil.cliente');
+        $nombre = Auth::user();
+        $cliente = DB::table('clientes')->where('Correo_Cliente',$nombre->email)->first();
+
+        
+        return view('perfil.cliente', ['cliente'=> $cliente]);
     }
 
     public function create(){

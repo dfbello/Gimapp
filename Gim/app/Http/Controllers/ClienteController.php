@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cliente;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ClienteController extends Controller
 {
@@ -13,7 +16,9 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('cliente');
+        $nombre = Auth::user();
+        
+        return view('cliente', ['name' => 'Juan']);
     }
 
     /**

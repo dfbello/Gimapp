@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Cliente;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RegistroExitoso;
 
 class RegisterController extends Controller
 {
@@ -37,6 +39,8 @@ class RegisterController extends Controller
         
         $cliente->save();
         
+        Mail::to($request->get('email'))->send(new RegistroExitoso($cliente));
+
         $user = User::create(request(['name', 'email', 'password']));
 
         return redirect()->to('/login');

@@ -4,10 +4,10 @@
 
 @section('content')
 
-<div class="form-signin w-100 m-auto mt-3">
+<div class="row form-signin w-100 m-auto mt-3">
     <form method="POST">
         @csrf
-        <h1 class="h3 mb-3 fw-normal">Sign in</h1>
+        <h1 class="h3 mb-3 fw-normal text-center">Sign in</h1>
         <div class="form-floating w-50 m-auto">
             <input type="email" class="form-control w-" id="email" name="email" placeholder="ingrese un correo" value="{{old('email')}}">
             <label for="email"> Correo electronico</label>
@@ -25,7 +25,7 @@
         </p>
        
 
-        <button type="submit" class="w-50 btn btn-lg btn-primary m-auto mt-3">Entrar</button>
+        <button type="submit" class="w-50 btn btn-lg btn-primary mt-3 m-auto" style="display:block;">Entrar</button>
     </form>
     
 </div>

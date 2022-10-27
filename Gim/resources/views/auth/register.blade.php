@@ -8,7 +8,7 @@
     <form action="" method="POST">
         @csrf
 
-        <h1 class="h3 mb-3 fw-normal">Registro</h1>
+        <h1 class="h3 mb-3 fw-normal text-center">Registro</h1>
         <div class="form-floating w-50 m-auto">
             <input type="text" class="form-control w-" id="name" name="name" placeholder="ingrese su nombre" value="{{old('name')}}">
             <label for="name"> Nombre</label>
@@ -63,7 +63,7 @@
             </div>
         @endif
 
-        <button class="w-50 btn btn-lg btn-primary m-auto mt-3">Entrar</button>
+        <button class="w-50 btn btn-lg btn-primary m-auto mt-3" style="display: block">Entrar</button>
     </form>
     
 </div>
