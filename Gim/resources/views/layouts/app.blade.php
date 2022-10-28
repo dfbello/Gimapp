@@ -63,8 +63,8 @@
                         if((session("rol"))== NULL){
                         ?>
                             <li class="nav-item">
-                                <a class="btn btn-primary" href="{{ route('asignarRutina') }}">{{ __('Login') }}</a>
-                                <a class="btn btn-dark" href="{{ route('asignarRutina') }}">{{ __('Registro') }}</a>
+                                <a class="btn btn-primary" href="/Rutina">{{ __('Login') }}</a>
+                                <a class="btn btn-dark" href="/Rutina">{{ __('Registro') }}</a>
                             </li>
                         <?php
                         }else{
