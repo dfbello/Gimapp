@@ -14,7 +14,7 @@ class CreateEjerciciosTable extends Migration
     public function up()
     {
         Schema::create('ejercicios', function (Blueprint $table) {
-            $table->integer('Clave_Ejercicio')->primary();
+            $table->integer('Clave_Ejercicio',true);
             $table->string('Descripcion_Ejercicio', 100)->nullable();
             $table->integer('Series_Ejercicio')->nullable();
             $table->integer('Repeticiones_Ejercicio')->nullable();
