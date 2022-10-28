@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ejercicio;
+use App\Models\Recurso;
 
 class ejercicioController extends Controller
 {
@@ -15,7 +16,8 @@ class ejercicioController extends Controller
     public function index()
     {
         return view('ejercicio.index',[
-            'ejercicios' => Ejercicio::all()
+            'ejercicios' => Ejercicio::all(),
+            'recursos' => Recurso::all()
         ]);
     }
 
