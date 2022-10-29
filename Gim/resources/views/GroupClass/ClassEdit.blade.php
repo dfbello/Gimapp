@@ -7,7 +7,7 @@
     <form action="/group_class/{{$clase->Clave_Clase}}" method = "POST">
     @csrf
     @method('put')
-        <h1 class="h3 mb-3 fw-normal">Editar Clase  {{$clase->Nombre_Clase}}</h1>
+        <h1 class="h3 mb-3 fw-normal text-center">Editar Clase  {{$clase->Nombre_Clase}}</h1>
 
         <div class="form-floating w-50 m-auto">
             <input type="text" class="form-control w-" id="nombre" name = "nombre"  value = "{{$clase->Nombre_Clase}}" placeholder="">
@@ -43,9 +43,11 @@
             </select>
             <label for="duracion">Entrenador asignado</label>
         </div>
-
-        <button type= "submit" class="w-25 btn btn-lg btn-primary m-auto mt-3">Guardar Cambios</button>
-        <a href="/group_class" class="w-25 btn btn-lg btn-outline-danger m-auto mt-3" role="button">Descartar Cambios</a>
+        <div class= "row justify-content-center w-50 m-auto">
+            <button type= "submit" class="w-50 btn btn-lg btn-primary m-auto mt-3 mr-1" >Guardar Cambios</button>
+            <a href="/group_class" class="w-50 btn btn-lg btn-outline-danger m-auto mt-3" role="button">Descartar Cambios</a>
+        </div>
+        
         
         @if($errors->any())
             <div class="alert alert-danger">
