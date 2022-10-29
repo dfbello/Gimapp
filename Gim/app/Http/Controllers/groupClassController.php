@@ -83,7 +83,11 @@ class groupClassController extends Controller
      */
     public function edit($id)
     {
-        //
+        $clase = Clase::findOrFail($id);
+        return view('GroupClass.ClassEdit', [
+            'clase' => $clase,
+            'Entrenadores' => Entrenador::all()
+        ]);
     }
 
     /**
@@ -94,8 +98,25 @@ class groupClassController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {       
+        $validaData = $request->validate([
+            'nombre' => 'required|min:2|string',
+            'descripcion' => 'required|min:5|string',
+            'cupos' => 'required|between:5,60|integer',
+            'datetime' => 'required',
+            'duracion' => 'required|between:5,180|integer'
+        ]);
+
+        $clase = Clase::FindOrFail($id);
+        $clase -> Nombre_Clase = $request -> get('nombre');
+        $clase -> Descripcion_Clase = $request -> get('descripcion');
+        $clase -> Cupos_Clase = $request -> get('cupos');
+        $clase -> Horario_Clase = $request -> get('datetime');
+        $clase -> Duracion = $request -> get('duracion');
+        $clase -> Clave_EntrenadorFK1 = $request -> get('coach');
+        
+        $clase -> save();
+        return redirect('group_class');
     }
 
     /**

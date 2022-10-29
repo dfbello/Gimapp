@@ -9,6 +9,8 @@ class Clase extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'Clave_Clase';
+
     /**
      * Get the entrenador that owns the Clase
      *
