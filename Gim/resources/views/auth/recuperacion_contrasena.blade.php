@@ -13,12 +13,11 @@
             <label for="email"> Correo electronico</label>
         </div>
         <div class="form-floating w-50 m-auto mt-2">
-            <input type="password" class="form-control" id="password" name="password" placeholder="ingrese su contraseña">
-            <label for="password"> Contraseña</label>
+            <input type="email" class="form-control w-" id="email_confirmation" name="email_confirmation" placeholder="ingrese un correo" value="{{old('email')}}">
+            <label for="email_confirmation"> Confirme su correo electronico</label>
         </div>
-
         
-        <p class="text-danger text-center">
+        <p class="text-danger">
             @foreach ($errors->all() as $error)
                 {{$error}}
             @endforeach
