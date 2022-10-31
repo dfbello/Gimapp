@@ -4,7 +4,7 @@
 @section('content')
 <div class="row">
     <div class="col">
-        <h1 class="text-center">Nuevo ejercicio</h1>
+        <h1 class="text-center">Aisgnar entrenamiento</h1>
     </div>
 </div>
 
@@ -34,20 +34,19 @@
                 <label for="cliente">Cliente</label>
                 <select name="cliente" id="cliente" class= "form-control">
                     @foreach($clientes as $cliente)
-                    <option value="{{$cliente->Nombre_Cliente}}">{{$recurso->Nombre_Recurso}}</option>
+                    <option value="{{$cliente->Clave_Cliente}}">{{$cliente->Nombre_Cliente}}</option>
                     @endforeach
                 </select>
             </div>
-            <div class=" m-auto mt-2">
+            <div class=" m-auto mt-2 mb-3">
                 <label for="rutina">Rutina</label>
                 <select name="rutina" id="rutina" class= "form-control">
-                    <option value="">Ninguno</option>
                     @foreach($rutinas as $rutina)
-                    <option value="{{$rutina->Clave_Rutina}}">Objetivo: {{$rutina->Objetivo}}, Nivel: {{$rutina->nivel}}</option>
+                    <option value="{{$rutina->Clave_Rutina}}">ID rutina: {{$rutina->Clave_Rutina}}, Objetivo: {{$rutina->Objetivo}}, Nivel: {{$rutina->nivel}}</option>
                     @endforeach
                 </select>
             </div>
-            <button class="btn btn-lg btn-primary m-auto mt-3" style="display: block; font-size:16px;">Asignar Entrenamiento</button>
+            <button class="btn btn-lg btn-primary m-auto" style="display: block; font-size:16px; margin-top: 10px;">Asignar Entrenamiento</button>
         </form>
     </div>
 </div>

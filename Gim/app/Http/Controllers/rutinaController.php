@@ -64,7 +64,7 @@ class rutinaController extends Controller
             $asignado->save();
         }
 
-        return redirect('/Rutinas');
+        return redirect('/rutinas');
     }
 
     /**
@@ -121,7 +121,7 @@ class rutinaController extends Controller
             $asignado->save();
         }
 
-        return redirect('/Rutinas');
+        return redirect('/rutinas');
     }
 
     /**
@@ -139,6 +139,6 @@ class rutinaController extends Controller
         $rutina = Rutina::findOrFail($id);
         $rutina->delete();
 
-        return redirect('/Rutinas');
+        return redirect('/rutinas');
     }
 }

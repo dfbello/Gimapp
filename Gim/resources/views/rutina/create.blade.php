@@ -1,6 +1,7 @@
 @extends('layouts.app')
+@section('title', 'Crear rutina')
 
-@section('content2')
+@section('content')
 
 <div class="container">
         @if(session('error'))
@@ -8,7 +9,7 @@
                 {{session('error')}}
             </div>
         @endif
-    <form action="/Rutinas" method="POST">
+    <form action="/rutinas" method="POST">
     @csrf 
 
     <select name="Objetivo" id="Objetivo">

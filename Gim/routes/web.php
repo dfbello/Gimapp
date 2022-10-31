@@ -6,7 +6,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\ejercicioController;
 use App\Http\Controllers\ClaseController;
-use App\Http\Controllers\RutinaController;
+use App\Http\Controllers\rutinaController;
+use App\Http\Controllers\entrenamientoController;
 
 
 Route::get('/', function () {
@@ -22,6 +23,5 @@ Route::get('/logout', [SessionsController::class, 'destroy']) -> name('login.des
 Route::resource('/cliente', ClienteController::class);
 Route::resource('/ejercicio', ejercicioController::class);
 Route::resource('/entrenamiento', entrenamientoController::class);
-Route::resource('/rutinas', App\Http\Controllers\rutinaController::class);
-Route::resource('/Clases', App\Http\Controllers\ClaseController::class);
-Route::resource('/Rutinas', App\Http\Controllers\RutinaController::class);
+Route::resource('/rutinas', rutinaController::class);
+Route::resource('/Clases', ClaseController::class);
