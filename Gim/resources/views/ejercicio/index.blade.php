@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'ejercicios')
+@section('title', 'Ejercicios')
 
 @section('content')
 <div class="bg-light mt-5 border rounded p-5 w-75 m-auto">

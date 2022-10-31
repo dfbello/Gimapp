@@ -1,4 +1,5 @@
-@extends('recurso.layouts.base')
+@extends('layouts.app')
+@section('title', 'Recursos')
 @section('content')
     <div class="row">
         <div class="col">

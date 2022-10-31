@@ -1,6 +1,6 @@
 @extends('layouts.app')
  
-@section('title', 'clases')
+@section('title', 'Nueva Clase Grupal')
 @section('content')
 
 <div class="form-group-class w-100 m-auto mt-3">

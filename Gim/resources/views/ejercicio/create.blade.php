@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'crear ejercicio')
+@section('title', 'Nuevo Ejercicio')
 
 @section('content')
 <div class="row">
