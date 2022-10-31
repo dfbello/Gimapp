@@ -1,19 +1,22 @@
 @extends('layouts.app')
 @section('title', 'Recursos')
+
 @section('content')
-    <div class="row">
-        <div class="col">
-            <h1>Recursos</h1>
+    <div class="bg-light mt-5 border rounded p-5 w-75 m-auto">
+    <div class="row justify-content-center mx-5">
+        <div class="col-8 mb-3">
+            <h1 class="text-center">Recursos</h1>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <a class="btn btn-primary" href="/recursos/create">Crear un nuevo recurso</a>
+            <a class="btn btn-primary btn-sm" href="/recursos/create">Crear un nuevo recurso</a>
         </div>
     </div>
+
     <div class="row">
         <div class="col">
-            <table class="table">
+            <table class="table table-hover">
                 <tr>
                     <td>Clave</td>
                     <td>Tipo</td>
@@ -21,10 +24,6 @@
                     <td>QR</td>
                     <td>Nombre</td>
                     <td>Cantidad</td>
-                    <td>created_at</td>
-                    <td>updated_at</td>
-                    <td></td>
-                    <td></td>
                 </tr>
                 @foreach($recursos as $recurso)
                     <tr>
@@ -34,9 +33,7 @@
                         <td>{{$recurso->QR_Recurso}}</td>
                         <td>{{$recurso->Nombre_Recurso}}</td>
                         <td>{{$recurso->Cantidad_Recurso}}</td>
-                        <td>{{$recurso->created_at}}</td>
-                        <td>{{$recurso->updated_at}}</td>
-                        <td><a href="/recursos/{{$recurso->Clave_Recurso}}/edit">Editar</a></td>
+                        <td><a class="btn btn-outline-primary btn-sm" href="/recursos/{{$recurso->Clave_Recurso}}/edit" role="button">Editar</a></td>
                         <td><a href="/recursos/{{$recurso->Clave_Recurso}}/confirmDelete">Eliminar</a></td>
                     </tr>
                 @endforeach
