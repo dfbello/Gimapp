@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Entrenamiento;
+use App\Models\Cliente;
+use App\Models\Rutina;
 
 class entrenamientoController extends Controller
 {
@@ -13,7 +16,10 @@ class entrenamientoController extends Controller
      */
     public function index()
     {
-        //
+        return view('entrenamiento.index',[
+            'entrenamientos' => Entrenamiento::all(),
+            'clientes' => Cliente::all()
+        ]);
     }
 
     /**
@@ -23,7 +29,10 @@ class entrenamientoController extends Controller
      */
     public function create()
     {
-        //
+        return view('entrenamiento.create',[
+            'clientes' => Cliente::all(),
+            'rutinas' => Rutina::all()
+        ]);
     }
 
     /**
