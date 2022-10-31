@@ -8,25 +8,27 @@
                 {{session('error')}}
             </div>
         @endif
-    <form action="{{route('rutina.store')}}" method="POST">
+        <h1>Editar rutina {{$rutina->Clave_Rutina}}</h1>
+    <form action="/Rutinas/{{$rutina->Clave_Rutina}}" method="POST">
     @csrf 
-    <input type="text" name="Clave_Rutina" id="Clave_Rutina" placeholder="ID">
-
-
-    <input type="text" name="Fecha_Rutina" id="Fecha_Rutina" placeholder="Fecha">
-
-
-    <input type="text" name="Hora_Rutina" id="Hora_Rutina" placeholder="Hora">
-
-
-
-    <!--<input type="text" name="Clave_ClienteFK1" id="Clave_ClienteFK1">-->
-    <select name="Clave_ClienteFK1" id="Clave_ClienteFK1" placeholder="Cliente">
-        @foreach ($clientes as $cliente)
-        <option value="" disabled selected hidden>Seleccione un cliente</option>
-            <option value="{{ $cliente->Clave_Cliente }}">{{$cliente->Nombre_Cliente}}</option>>
-        @endforeach
+    @method('put')
+    <select name="Objetivo" id="Objetivo">
+        <option value="" disabled selected hidden>Seleccione un objetivo</option>
+            <option value="construir musculo">Construir musculo</option>>
+            <option value="perder grasa">Perder grasa</option>>
+            <option value="ganar musculo">Ganar musculo</option>>
+            <option value="perder peso">Perder peso</option>>
+            <option value="mejorar el rendimiento">Mejorar el rendimiento</option>>
     </select>
+
+
+    <select name="nivel" id="nivel">
+        <option value="" disabled selected hidden>Seleccione un nivel</option>
+            <option value="basico">Basico</option>>
+            <option value="medio">Medio</option>>
+            <option value="alto">Alto</option>>
+    </select>
+
     <br>
 
     <table class="table table-sm">
@@ -50,7 +52,7 @@
         </tbody>
     </table>
 
-    <input type="submit" value="Asignar" class="btn btn-primary">
+    <input type="submit" value="Editar" class="btn btn-primary">
     </form>
 </div>
 @endsection

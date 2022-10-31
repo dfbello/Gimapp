@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClaseController;
+use App\Http\Controllers\RutinaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/rutinas', App\Http\Controllers\rutinaController::class);
 
-
+Route::resource('/Clases', App\Http\Controllers\ClaseController::class);
+Route::resource('/Rutinas', App\Http\Controllers\RutinaController::class);

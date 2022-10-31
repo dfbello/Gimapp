@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Asignarrutina extends Model
+class Clase extends Model
 {
+    protected $primaryKey = 'Clave_Clase';
     use HasFactory;
 }
