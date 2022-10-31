@@ -1,0 +1,11 @@
+#btn-delete:hover{
+    color:red;
+}
+
+#btn-edit:hover{
+    color:blue;
+}
+
+body{
+    color:red;
+}

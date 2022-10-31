@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ejercicio;
 use App\Models\Recurso;
+use App\Models\Asignado;
 
 class ejercicioController extends Controller
 {
@@ -28,7 +29,9 @@ class ejercicioController extends Controller
      */
     public function create()
     {
-        //
+        return view('ejercicio.create',[
+            'recursos' => Recurso::all()
+        ]);
     }
 
     /**
@@ -38,8 +41,23 @@ class ejercicioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $validaData = $request->validate([
+            'Descripcion_Ejercicio' => 'required',
+            'Series_Ejercicio' => 'required',
+            'Repeticiones_Ejercicio' => 'required',
+        ]);
+
+        $ejercicio = new Ejercicio();
+
+        $ejercicio-> Descripcion_Ejercicio = $request->get('Descripcion_Ejercicio');
+        $ejercicio-> Series_Ejercicio = $request->get('Series_Ejercicio');
+        $ejercicio-> Repeticiones_Ejercicio = $request->get('Repeticiones_Ejercicio');
+        $ejercicio-> Clave_RecursoFK1 = $request->get('recurso');
+
+        $ejercicio->save();
+
+        return redirect('/ejercicio');
     }
 
     /**
@@ -61,7 +79,11 @@ class ejercicioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ejercicio = Ejercicio::findOrFail($id);
+        return view('ejercicio.edit', [
+            'ejercicio' => $ejercicio,
+            'recursos' => Recurso::all()
+        ]);
     }
 
     /**
@@ -72,8 +94,23 @@ class ejercicioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        $validaData = $request->validate([
+            'Descripcion_Ejercicio' => 'required',
+            'Series_Ejercicio' => 'required',
+            'Repeticiones_Ejercicio' => 'required',
+        ]);
+
+        $ejercicio = Ejercicio::findOrFail($id);
+        $ejercicio-> Descripcion_Ejercicio = $request->get('Descripcion_Ejercicio');
+        $ejercicio-> Series_Ejercicio = $request->get('Series_Ejercicio');
+        $ejercicio-> Repeticiones_Ejercicio = $request->get('Repeticiones_Ejercicio');
+        $ejercicio-> Clave_RecursoFK1 = $request->get('recurso');
+
+        $ejercicio->save();
+
+        return redirect('/ejercicio');
+        
     }
 
     /**
@@ -84,6 +121,12 @@ class ejercicioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rutinas_con_ejercicio = Asignado::where('Clave_EjercicioFK2',$id);
+        $rutinas_con_ejercicio->delete();
+
+        $ejercicio = Ejercicio::findOrFail($id);
+        $ejercicio->delete();
+
+        return redirect('/ejercicio');   
     }
 }

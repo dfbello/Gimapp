@@ -1,0 +1,16 @@
+#btn-delete{
+    border: none;
+    color:darkred;
+}
+
+#btn-delete:hover{
+    color:red;
+}
+
+#btn-edit{
+    color:darkblue;
+}
+
+#btn-edit:hover{
+    color:lightblue;
+}
