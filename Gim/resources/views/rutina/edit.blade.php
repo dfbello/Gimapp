@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container bg-light mt-5 border rounded p-5 w-75 m-auto">
         @if(session('error'))
             <div class="alert alert-{{session('tipo')}}" role="alert">
                 {{session('error')}}
@@ -53,7 +53,10 @@
         </tbody>
     </table>
 
-    <input type="submit" value="Editar" class="btn btn-primary">
+    <div class= "row justify-content-center m-auto">
+        <button type= "submit" value="Editar" class=" w-50 btn btn-lg btn-primary m-auto mt-3 mr-1" >Guardar Cambios</button>
+        <a href="/rutinas" class="w-50 btn btn-lg btn-outline-danger m-auto mt-3" role="button">Descartar Cambios</a>
+    </div>
     </form>
 </div>
 @endsection

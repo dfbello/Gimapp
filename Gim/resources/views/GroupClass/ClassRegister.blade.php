@@ -6,7 +6,7 @@
 <div class="form-group-class w-100 m-auto mt-3">
     <form action="/group_class" method = "POST">
     @csrf
-        <h1 class="h3 mb-3 fw-normal">Registrar Clase Grupal</h1>
+        <h1 class="h3 mb-3 fw-normal text-center">Registrar Clase Grupal</h1>
 
         <div class="form-floating w-50 m-auto">
             <input type="text" class="form-control w-" id="nombre" name = "nombre"  value = "{{old('nombre')}}" placeholder="">
@@ -43,7 +43,7 @@
             <label for="duracion">Entrenador asignado</label>
         </div>
 
-        <button class="w-50 btn btn-lg btn-primary m-auto mt-3">Registrar clase</button>
+        <button class="w-50 btn btn-lg btn-primary m-auto mt-3" style="display:block;">Registrar clase</button>
         
         @if($errors->any())
             <div class="alert alert-danger">
