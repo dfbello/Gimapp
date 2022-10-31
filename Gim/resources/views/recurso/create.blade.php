@@ -24,8 +24,6 @@
             <form action="/recursos" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="clave">Clave:</label>
-                    <input type="number" class="form-control" id="clave" name="clave" placeholder="Escriba una clave" min="0" value="{{old('clave')}}">
                     <label for="tipo">Tipo:</label>
                     <input type="text" class="form-control" id="tipo" name="tipo" placeholder="Escriba un tipo" value="{{old('tipo')}}">
                     <label for="descripcion">Descripción:</label>

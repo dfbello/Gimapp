@@ -38,7 +38,6 @@ class RecursoController extends Controller
     public function store(Request $request)
     {
         $validData = $request->validate([
-            'clave' => 'required',
             'tipo' => 'required', 
             'descripcion' => 'required', 
             'qr' => 'required', 
