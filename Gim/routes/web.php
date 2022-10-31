@@ -25,3 +25,5 @@ Route::resource('/ejercicio', ejercicioController::class);
 Route::resource('/entrenamiento', entrenamientoController::class);
 Route::resource('/rutinas', rutinaController::class);
 Route::resource('/Clases', ClaseController::class);
+Route::resource('/recursos', 'App\Http\Controllers\RecursoController');
+Route::get('/recursos/{Clave_Recurso}/confirmDelete', 'App\Http\Controllers\RecursoController@confirmDelete');
