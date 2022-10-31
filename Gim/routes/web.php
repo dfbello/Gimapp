@@ -8,6 +8,7 @@ use App\Http\Controllers\ejercicioController;
 use App\Http\Controllers\rutinaController;
 use App\Http\Controllers\entrenamientoController;
 use App\Http\Controllers\groupClassController;
+use App\Http\Controllers\recursoController;
 
 
 Route::get('/', function () {
@@ -24,6 +25,5 @@ Route::resource('/cliente', ClienteController::class);
 Route::resource('/ejercicio', ejercicioController::class);
 Route::resource('/entrenamiento', entrenamientoController::class);
 Route::resource('/rutinas', rutinaController::class);
-Route::resource('/recursos', 'App\Http\Controllers\RecursoController');
-Route::get('/recursos/{Clave_Recurso}/confirmDelete', 'App\Http\Controllers\RecursoController@confirmDelete');
+Route::resource('/recursos', recursoController::class);
 Route::resource('/group_class', groupClassController::class);

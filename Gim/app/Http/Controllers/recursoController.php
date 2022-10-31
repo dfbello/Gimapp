@@ -110,17 +110,11 @@ class RecursoController extends Controller
      */
     public function destroy($id)
     {
+        
         $recurso = Recurso::findOrFail($id);
         $recurso->delete();
 
         return redirect('/recursos');
-    }
-
-    public function confirmDelete($id){
-        $recurso = Recurso::findOrFail($id);
-        return view('recurso.confirmDelete', [
-            'recurso' => $recurso
-        ]);
     }
 
 }
