@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Recurso;
 use Illuminate\Http\Request;
 
-class recursoController extends Controller
+class RecursoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,9 @@ class recursoController extends Controller
      */
     public function index()
     {
-        //
+        return view('recurso.index',[
+            'recursos' => Recurso::all()
+        ]);
     }
 
     /**
@@ -23,7 +26,7 @@ class recursoController extends Controller
      */
     public function create()
     {
-        //
+        return view('recurso.create');
     }
 
     /**
@@ -34,7 +37,24 @@ class recursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validData = $request->validate([
+            'tipo' => 'required', 
+            'descripcion' => 'required', 
+            'qr' => 'required', 
+            'nombre' => 'required',
+            'cantidad' => 'required'
+        ]);
+
+        $recurso = new Recurso();
+        $recurso->Clave_Recurso=$request->get('clave');
+        $recurso->Tipo_Recurso=$request->get('tipo');
+        $recurso->Descripcion_Recurso=$request->get('descripcion');
+        $recurso->QR_Recurso=$request->get('qr');
+        $recurso->Nombre_Recurso=$request->get('nombre');
+        $recurso->Cantidad_Recurso=$request->get('cantidad');
+        $recurso->save();
+
+        return redirect('/recursos');
     }
 
     /**
@@ -56,7 +76,10 @@ class recursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $recurso = Recurso::findOrFail($id);
+        return view('recurso.edit', [
+            'recurso' => $recurso
+        ]);
     }
 
     /**
@@ -68,7 +91,15 @@ class recursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $recurso = Recurso::findOrFail($id);
+        $recurso->Tipo_Recurso=$request->get('tipo');
+        $recurso->Descripcion_Recurso=$request->get('descripcion');
+        $recurso->QR_Recurso=$request->get('qr');
+        $recurso->Nombre_Recurso=$request->get('nombre');
+        $recurso->Cantidad_Recurso=$request->get('cantidad');
+        $recurso->save();
+
+        return redirect('/recursos');
     }
 
     /**
@@ -79,6 +110,17 @@ class recursoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $recurso = Recurso::findOrFail($id);
+        $recurso->delete();
+
+        return redirect('/recursos');
     }
+
+    public function confirmDelete($id){
+        $recurso = Recurso::findOrFail($id);
+        return view('recurso.confirmDelete', [
+            'recurso' => $recurso
+        ]);
+    }
+
 }
