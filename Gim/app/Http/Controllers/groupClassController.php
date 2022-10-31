@@ -127,6 +127,9 @@ class groupClassController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $clase = Clase::findOrFail($id);
+        $clase->delete();
+
+        return redirect('/group_class'); 
     }
 }
