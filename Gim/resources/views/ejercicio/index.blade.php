@@ -2,28 +2,32 @@
 @section('title', 'Ejercicios')
 
 @section('content')
-    <div class="bg-light mt-5 border rounded p-5 w-75 m-auto">
-    <div class="row justify-content-center mx-5">
-        <div class="col-8 mb-3">
-            <h1 class="text-center">Ejercicios</h1>
-        </div>
+<div class="bg-light mt-5 border rounded p-5 w-75 m-auto">
+<div class="row justify-content-center mx-5">
+    <div class="col-8 mb-3">
+        <h1 class="text-center">Ejercicios</h1>
     </div>
-    <div class="row">
-        <div class="col">
-            <a href="/ejercicio/create" class="btn btn-primary btn-sm">Crear nuevo ejercicio</a>
-        </div>
+</div>
+<div class="row mb-3">
+    <div class="col">
+        <a href="/ejercicio/create" class="btn btn-primary">Crear nuevo ejercicio</a>
     </div>
-    
+</div>
+<div>
     <div class="row">
         <div class="col">
             <table class="table table-hover">
-                <tr>
-                    <td>Id</td>
-                    <td>Recurso</td>
-                    <td>Descripción</td>
-                    <td>Series</td>
-                    <td>Repeticiones</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Recurso</th>
+                        <th>Descripción</th>
+                        <th>Series</th>
+                        <th>Repeticiones</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
                 @foreach ($ejercicios as $ejercicio)
                 <tr>
                     <td>{{$ejercicio->Clave_Ejercicio}}</td>

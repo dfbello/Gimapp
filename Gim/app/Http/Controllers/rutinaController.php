@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Rutina;
 use App\Models\Ejercicio;
 use App\Models\Asignado;
+use App\Models\Entrenamiento;
 use Illuminate\Support\Facades\DB;
 
 class rutinaController extends Controller
@@ -133,6 +134,9 @@ class rutinaController extends Controller
     public function destroy($id)
     {
         //
+        $entrenamiento = Entrenamiento::where('Clave_RutinaFK2',$id);
+        $entrenamiento->delete();
+
         $asignado = Asignado::where('Clave_RutinaFK1',$id);
         $asignado->delete();
 
