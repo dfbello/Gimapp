@@ -17,15 +17,17 @@
     <div class="row">
         <div class="col">
             <table class="table table-hover">
-                <tr>
-                    <th>Id</th>
-                    <th>Recurso</th>
-                    <th>Descripción</th>
-                    <th>Series</th>
-                    <th>Repeticiones</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Recurso</th>
+                        <th>Descripción</th>
+                        <th>Series</th>
+                        <th>Repeticiones</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
                 @foreach ($ejercicios as $ejercicio)
                 <tr>
                     <td>{{$ejercicio->Clave_Ejercicio}}</td>
