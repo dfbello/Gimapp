@@ -3,7 +3,7 @@
 @section('title', 'Editar Ejercicio')
 @section('content')
 
-<div class="form-group-class w-100 m-auto mt-3">
+<div class="form-group-class w-100 m-auto mt-3 ">
     <form action="/ejercicio/{{$ejercicio->Clave_Ejercicio}}" method = "POST">
     @csrf
     @method('put')
@@ -25,13 +25,13 @@
         </div>
 
         <div class="form-floating w-50 m-auto">
-            <select name="recurso " id="recurso " value = "{{old('coach')}}" class= "form-control w-">
+            <select name="recurso" id="recurso" class= "form-control w-">
                 <option value="">Ninguno</option>
                 @foreach($recursos as $recurso)
                 <option value="{{$recurso->Clave_Recurso}}">{{$recurso->Nombre_Recurso}}</option>
                 @endforeach
             </select>
-            <label for="recurso ">Recurso utilizado</label>
+            <label for="recurso">Recurso utilizado</label>
         </div>
         <div class= "row justify-content-center w-50 m-auto">
             <button type= "submit" class="w-50 btn btn-lg btn-primary m-auto mt-3 mr-1" >Guardar Cambios</button>

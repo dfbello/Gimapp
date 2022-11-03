@@ -37,7 +37,7 @@
                     <td>{{ $clase->Horario_Clase }}</td>
                     <td>{{ $clase->Duracion }}</td>
                     <td>{{ $clase->entrenador->Nombre_Entrenador ?? 'None'}}</td>
-                    <td><a class="btn btn-outline-primary btn-sm" href="group_class/{{$clase->Clave_Clase}}/edit" role="button">Editar</a></td>
+                    <td><a class="btn btn-outline-primary btn-sm" href="/group_class/{{$clase->Clave_Clase}}/edit" role="button">Editar</a></td>
                     <td>
                         <button type="button" class="btn btn-outline-danger btn-sm btn-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="{{$clase->Clave_Clase}}" id ="btn-delete">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

@@ -9,7 +9,7 @@
                 {{session('error')}}
             </div>
         @endif
-        <h1>Editar rutina {{$rutina->Clave_Rutina}}</h1>
+        <h1 class="text-center">Editar rutina {{$rutina->Clave_Rutina}}</h1>
     <form action="/rutinas/{{$rutina->Clave_Rutina}}" method="POST">
     @csrf 
     @method('put')
