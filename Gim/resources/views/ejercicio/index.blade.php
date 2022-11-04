@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-2 m-5 mt-0">
+        <div class="col-4 ml-5 mb-3">
             <a href="/ejercicio/create" class="btn btn-primary btn-sm p-2">Crear nuevo ejercicio</a>
         </div>
     </div>

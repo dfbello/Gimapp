@@ -2,15 +2,15 @@
 @section('title', 'perfil')
 
 @section('content')
-<div class="bg-light mt-5 border rounded p-5 w-75 m-auto">
-<div class="row justify-content-center mx-5">
-    <div class="col-8 mb-3">
+<div class="bg-light border rounded w-100 m-auto h-100" style="box-sizing: border-box;">
+<div class="row justify-content-center mx-5 mt-5">
+    <div class="col-12 mb-3">
         <h1 class="text-left">Tus datos personales</h1>
     </div>
 </div>
 @if (Auth::user())
-    <div class="row justify-content-center">
-        <div class="col-4 " >
+    <div class="row justify-content-center px-5">
+        <div class="col-6" >
             <p class="" style="font-size: 25px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
@@ -35,7 +35,7 @@
             </p>
 
         </div>
-        <div class="col-4 ">
+        <div class="col-6">
             <p class="" style="font-size: 25px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-hourglass" viewBox="0 0 16 16">
                     <path d="M2 1.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1-.5-.5zm2.5.5v1a3.5 3.5 0 0 0 1.989 3.158c.533.256 1.011.791 1.011 1.491v.702c0 .7-.478 1.235-1.011 1.491A3.5 3.5 0 0 0 4.5 13v1h7v-1a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351v-.702c0-.7.478-1.235 1.011-1.491A3.5 3.5 0 0 0 11.5 3V2h-7z"/>
@@ -57,15 +57,15 @@
             <button type="button" class="btn btn-secondary" style="font-size: 15px;">Cambiar Contraseña</button>
         </div>
     </div>
-
+    <hr style="width: 90%; margin:10px auto 20px auto; ">
     <div class="row justify-content-center mx-5">
-        <div class="col-8 mb-2">
+        <div class="col-12 mb-2">
             <h1 class="text-left">Tus indicadores</h1>
         </div>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="col-4 " >
+    <div class="row justify-content-center px-5">
+        <div class="col-6">
             <p class="" style="font-size: 25px; font-weight: lighter; ">
                 <strong>Objetivo:</strong> {{$cliente->Objetivos_Cliente }}
             </p>
@@ -73,7 +73,7 @@
                 <strong>Peso:</strong> {{$cliente->Peso_Cliente }}
             </p>
         </div>
-        <div class="col-4 " >
+        <div class="col-6" >
             <p class="" style="font-size: 25px; font-weight: lighter; ">
                 <strong>Estatura:</strong> {{$cliente->Estatura_Cliente }}
             </p>

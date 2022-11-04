@@ -14,3 +14,20 @@
 #btn-edit:hover{
     color:lightblue;
 }
+
+#exit{
+    color:darkred;
+}
+
+#btn-exit:hover{
+    color:red;
+}
+
+#btn-perfil{
+    color:#0d6efd;
+}
+
+#btn-perfil:hover{
+    color: #0c57c7;
+}
+

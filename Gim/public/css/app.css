@@ -10903,19 +10903,18 @@ a.text-dark:focus {
   }
 }
 
-#btn-delete{
-  border: none;
+#exit{
   color:darkred;
 }
 
-#btn-delete:hover{
+#exit:hover{
   color:red;
 }
 
-#btn-edit{
-  color:darkblue;
+#btn-perfil{
+  color: #0c57c7;
 }
 
-#btn-edit:hover{
-  color:lightblue;
+#btn-perfil:hover{
+  color:#0098E6;
 }

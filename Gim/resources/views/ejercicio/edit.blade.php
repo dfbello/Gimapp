@@ -7,7 +7,7 @@
     <form action="/ejercicio/{{$ejercicio->Clave_Ejercicio}}" method = "POST">
     @csrf
     @method('put')
-        <h1 class="h3 mb-3 fw-normal text-center">Editar Ejercicio: {{$ejercicio->Descripcion_Ejercicio}}</h1>
+        <h1 class="h3 my-3 fw-normal text-center">Editar Ejercicio: {{$ejercicio->Descripcion_Ejercicio}}</h1>
 
         <div class="form-floating w-50 m-auto">
             <input type="text" class="form-control w-" id="Descripcion_Ejercicio" name = "Descripcion_Ejercicio"  value = "{{$ejercicio->Descripcion_Ejercicio}}" placeholder="">
