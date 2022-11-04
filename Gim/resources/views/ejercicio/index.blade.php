@@ -2,19 +2,20 @@
 @section('title', 'Ejercicios')
 
 @section('content')
-<div class="bg-light mt-5 border rounded p-5 w-75 m-auto">
-<div class="row justify-content-center mx-5">
-    <div class="col-8 mb-3">
-        <h1 class="text-center">Ejercicios</h1>
+<div class="bg-light border rounded w-100 m-auto h-100" style="box-sizing: border-box;">
+    
+    <div class="row justify-content-center mx-5">
+        <div class="col-8 my-3">
+            <h1 class="text-center">Ejercicios</h1>
+        </div>
     </div>
-</div>
-<div class="row mb-3">
-    <div class="col">
-        <a href="/ejercicio/create" class="btn btn-primary">Crear nuevo ejercicio</a>
-    </div>
-</div>
-<div>
     <div class="row">
+        <div class="col-2 m-5 mt-0">
+            <a href="/ejercicio/create" class="btn btn-primary btn-sm p-2">Crear nuevo ejercicio</a>
+        </div>
+    </div>
+
+    <div class="row px-5">
         <div class="col">
             <table class="table table-hover">
                 <thead>
@@ -67,19 +68,13 @@
                             </div>
                             </div> 
                         </div>
-                        
-                        
                     </td>
                 </tr>
                 @endforeach
             </table>
-
         </div>
     </div>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-
     <script>
         const exampleModal = document.getElementById('exampleModal')
         exampleModal.addEventListener('show.bs.modal', event => {
@@ -93,10 +88,9 @@
     // Update the modal's content.
             const modalTitle = exampleModal.querySelector('.modal-title')
             const modalFooterForm = exampleModal.querySelector('.modal-footer form')
-
             modalTitle.textContent = `Eliminar Ejercicio: ${recipient}`
             modalFooterForm.setAttribute('action',`ejercicio/${recipient}`)
         })
     </script>
-
+</div>
 @endsection

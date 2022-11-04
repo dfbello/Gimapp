@@ -4,10 +4,10 @@
 
 @section('content')
 
-<div class="row form-signin w-100 m-auto mt-3">
+<div class="row form-signin w-100 m-auto mt-3 bg-light" style="height: 100vh; box-sizing:border-box;">
     <form method="POST">
         @csrf
-        <h1 class="h3 mb-3 fw-normal text-center">Sign in</h1>
+        <h1 class="h3 my-3 fw-normal text-center">Sign in</h1>
         <div class="form-floating w-50 m-auto">
             <input type="email" class="form-control w-" id="email" name="email" placeholder="ingrese un correo" value="{{old('email')}}">
             <label for="email"> Correo electronico</label>

@@ -2,19 +2,21 @@
 @section('title', 'Recursos')
 
 @section('content')
-    <div class="bg-light mt-5 border rounded p-5 w-75 m-auto">
+<div class="bg-light border rounded w-100 m-auto h-100" style="box-sizing: border-box;">
+    
     <div class="row justify-content-center mx-5">
-        <div class="col-8 mb-3">
+        <div class="col-8 my-3">
             <h1 class="text-center">Recursos</h1>
         </div>
     </div>
+    
     <div class="row">
-        <div class="col">
-            <a class="btn btn-primary btn-sm" href="/recursos/create">Crear un nuevo recurso</a>
+        <div class="col-2 m-5 mt-0">
+            <a class="btn btn-primary btn-sm p-2" href="/recursos/create">Crear un nuevo recurso</a>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row px-5">
         <div class="col">
             <table class="table table-hover">
                 <thead>
@@ -25,6 +27,8 @@
                         <th>QR</th>
                         <th>Nombre</th>
                         <th>Cantidad</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 
@@ -95,4 +99,5 @@
             modalFooterForm.setAttribute('action',`recursos/${recipient}`)
         })
     </script>
+</div>
 @endsection

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="form-signin w-100 m-auto mt-3">
+<div class="form-signin w-100 m-auto mt-3 bg-light" style="height: 100vh;">
     <form action="" method="POST">
         @csrf
 
