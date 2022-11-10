@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Entrenamiento;
 use App\Models\Cliente;
 use App\Models\Rutina;
+use Illuminate\Support\Facades\DB;
+
 
 class entrenamientoController extends Controller
 {
@@ -27,11 +29,26 @@ class entrenamientoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $objetivo = strval($request->get('objetivo'));
+        $nivel = $request->get('nivel');
+        $rutinas = Rutina::all();
+
+        if($request->get('objetivo') || $request->get('nivel')){
+            if($request->get('ambos')){
+                $sql = "SELECT * FROM `rutinas` WHERE `Objetivo` LIKE ?  AND `nivel` LIKE ?";
+                $rutinas = DB::select($sql,array($objetivo, $nivel));
+            }else{
+                $sql = "SELECT * FROM `rutinas` WHERE `Objetivo` LIKE ?  OR `nivel` LIKE ?";
+                $rutinas = DB::select($sql,array($objetivo, $nivel));
+            }
+
+        }
         return view('entrenamiento.create',[
             'clientes' => Cliente::all(),
-            'rutinas' => Rutina::all()
+            'rutinas' => $rutinas,
+            'objetivo' => $objetivo
         ]);
     }
 
@@ -43,7 +60,20 @@ class entrenamientoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validData = $request->validate([
+            'cliente' => 'required',
+            'seleccionado' => 'required'
+        ]);
+
+        $rutinas = $request->input("seleccionado");
+        foreach ($rutinas as $rutina){
+            $entrenamiento = new Entrenamiento();
+            $entrenamiento->Clave_ClienteFK2 =$request->get('cliente');;
+            $entrenamiento->Clave_RutinaFK2 =$rutina;
+            $entrenamiento->save();
+        }
+
+        return redirect('/entrenamiento');
     }
 
     /**

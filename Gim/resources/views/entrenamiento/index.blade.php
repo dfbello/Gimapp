@@ -2,30 +2,32 @@
 @section('title', 'Entrenamientos')
 
 @section('content')
-<div class="bg-light mt-5 border rounded p-5 w-75 m-auto">
-<div class="row justify-content-center mx-5">
-    <div class="col-8 mb-3">
-        <h1 class="text-center">Entrenamientos</h1>
+<div class="bg-light border rounded w-100 m-auto h-100" style="box-sizing: border-box;">
+    <div class="row justify-content-center mx-5">
+        <div class="col-8 my-3">
+            <h1 class="text-center">Entrenamientos</h1>
+        </div>
     </div>
-</div>
-<div class=row>
-    <div class="col">
-        <a href="/entrenamiento/create" class="btn btn-primary">Asignar entrenamiento</a>
+    <div class=row>
+        <div class="col-4 ml-5 mb-3">
+            <a href="/entrenamiento/create" class="btn btn-primary btn-sm p-2">Asignar entrenamiento</a>
+        </div>
     </div>
-</div>
-<div>
-    <div class="row">
+
+    <div class="row px-5">
         <div class="col">
-            <table class="table">
-                <tr>
-                    <td>Id</td>
-                    <td>Cliente</td>
-                    <td>Rutina id</td>
-                    <td>Hora</td>
-                    <td>Fecha</td>
-                    <td>Editar</td>
-                    <td>Eliminar</td>
-                </tr>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Cliente</td>
+                        <td>Rutina id</td>
+                        <td>Hora</td>
+                        <td>Fecha</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
                 @foreach ($entrenamientos as $entrenamiento)
                 <tr>
                     <td>{{$entrenamiento->Clave_Entrenamiento}}</td>
@@ -71,7 +73,6 @@
                 </tr>
                 @endforeach
             </table>
-
         </div>
     </div>
 </div>

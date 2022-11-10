@@ -16,9 +16,9 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $nombre = Auth::user();
-        
-        return view('cliente', ['name' => 'Juan']);
+        return view('cliente.index',[
+            'clientes' => Cliente::all()
+        ]);
     }
 
     /**
