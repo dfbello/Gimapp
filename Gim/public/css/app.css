@@ -10918,3 +10918,7 @@ a.text-dark:focus {
 #btn-perfil:hover{
   color:#0098E6;
 }
+
+#btn-menu-lateral:hover{
+  background-color: #121416;
+}

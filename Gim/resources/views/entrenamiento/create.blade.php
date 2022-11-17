@@ -4,7 +4,7 @@
 @section('content')
 <div class="row">
     <div class="col">
-        <h1 class="text-center">Asignar entrenamiento</h1>
+        <h1 class="text-center">Asignar entrenamiento a {{$cliente->Nombre_Cliente}}</h1>
     </div>
 </div>
 
@@ -48,13 +48,9 @@
                     </ul>
                 </div>
             @endif
-            <div class=" m-auto mt-2">
+            <div class=" m-auto mt-2" style="display: none;">
                 <label for="cliente">Cliente</label>
-                <select name="cliente" id="cliente" class= "form-control">
-                    @foreach($clientes as $cliente)
-                    <option value="{{$cliente->Clave_Cliente}}">CC: {{$cliente->Clave_Cliente}} <span style="color:darkgrey;"> | | </span>{{$cliente->Nombre_Cliente}}</option>
-                    @endforeach
-                </select>
+                <input type="text" id="cliente" name="cliente" value="{{$cliente->Clave_Cliente}}">
             </div>
             <div class=" m-auto mt-2 mb-3">
                 <table class="table table-sm mt-3">

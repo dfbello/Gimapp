@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cliente;
+use App\Models\Rutina;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,11 +22,37 @@ class ClienteController extends Controller
         ]);
     }
 
+    public function asignarEntrenamiento(Request $request, $id)
+    {
+        $objetivo = strval($request->get('objetivo'));
+        $nivel = $request->get('nivel');
+        $rutinas = Rutina::all();
+
+        if($request->get('objetivo') || $request->get('nivel')){
+            if($request->get('ambos')){
+                $sql = "SELECT * FROM `rutinas` WHERE `Objetivo` LIKE ?  AND `nivel` LIKE ?";
+                $rutinas = DB::select($sql,array($objetivo, $nivel));
+            }else{
+                $sql = "SELECT * FROM `rutinas` WHERE `Objetivo` LIKE ?  OR `nivel` LIKE ?";
+                $rutinas = DB::select($sql,array($objetivo, $nivel));
+            }
+        }
+        return view('entrenamiento.create',[
+            'cliente' => Cliente::findOrFail($id),
+            'rutinas' => $rutinas,
+            'objetivo' => $objetivo
+        ]);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+    
+
+
     public function create()
     {
         

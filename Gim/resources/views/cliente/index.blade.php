@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Ejercicios')
+@section('title', 'Clientes')
 
 @section('content')
 <div class="bg-light border rounded w-100 m-auto h-100" style="box-sizing: border-box;">
@@ -32,6 +32,7 @@
                     <td>{{$cliente->Nombre_Cliente}}</td>
                     <td>{{$cliente->Edad_ACliente }}</td>
                     <td><a class="btn btn-outline-primary btn-sm" href="/cliente/{{$cliente->Clave_Cliente}}/edit" role="button">Valoración</a></td>
+                    <td><a class="btn btn-outline-primary btn-sm" href="/cliente/{{$cliente->Clave_Cliente}}/asignarEntrenamiento" role="button">Asignar Entrenamiento</a></td>
                 </tr>
                 @endforeach
             </table>

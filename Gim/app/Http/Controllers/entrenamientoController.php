@@ -118,6 +118,9 @@ class entrenamientoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $entrenamiento = Entrenamiento::findOrFail($id);
+        $entrenamiento->delete();
+
+        return redirect('/entrenamiento');  
     }
 }

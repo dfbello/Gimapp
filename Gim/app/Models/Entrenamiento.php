@@ -12,4 +12,7 @@ class Entrenamiento extends Model
     public function cliente(){
         return $this->belongsTo(Cliente::class,'Clave_ClienteFK2','Clave_Cliente');
     }
+    public function rutina(){
+        return $this->belongsTo(Rutina::class,'Clave_RutinaFK2','Clave_Rutina');
+    }
 }

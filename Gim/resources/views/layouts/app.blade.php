@@ -27,22 +27,32 @@
                 </a>
               </li>
               <li>
-                <a href="/recursos" class="nav-link text-white">
+                <a href="/recursos" class="nav-link text-white" id="btn-menu-lateral">
                   Recursos
                 </a>
               </li>
               <li>
-                <a href="/ejercicio" class="nav-link text-white">
+                <a href="/ejercicio" class="nav-link text-white" id="btn-menu-lateral">
                   Ejercicios
                 </a>
               </li>
               <li>
-                <a href="/rutinas" class="nav-link text-white">
+                <a href="/rutinas" class="nav-link text-white" id="btn-menu-lateral">
                   Rutinas
                 </a>
               </li>
               <li>
-                <a href="/group_class" class="nav-link text-white">
+                <a href="/entrenamiento" class="nav-link text-white" id="btn-menu-lateral">
+                  Entrenamientos
+                </a>
+              </li>
+              <li>
+                <a href="/cliente" class="nav-link text-white" id="btn-menu-lateral">
+                  Clientes
+                </a>
+              </li>
+              <li>
+                <a href="/group_class" class="nav-link text-white" id="btn-menu-lateral">
                   Clases
                 </a>
               </li>
