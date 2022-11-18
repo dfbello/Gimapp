@@ -77,8 +77,12 @@ class rutinaController extends Controller
     public function show($id)
     {
         $rutina = Rutina::findOrFail($id);
-        return view('rutina.edit', [
+        $sql = "SELECT * FROM `asignados` WHERE `Clave_RutinaFK1` = ?";
+        $asignados = DB::select($sql,array($id));
+
+        return view('rutina.show', [
             'rutina' => $rutina,
+            'asignados' => $asignados,
             'ejercicios' => Ejercicio::all()
         ]);
     }
@@ -118,10 +122,9 @@ class rutinaController extends Controller
         $asignado->delete();
 
         $ejercicios = $request->input("seleccionado");
-        $rutinaid = DB::table('rutinas')->latest('created_at')->first();
         foreach ($ejercicios as $ejercicio){
             $asignado = new Asignado();
-            $asignado->Clave_RutinaFK1=$rutinaid->Clave_Rutina;
+            $asignado->Clave_RutinaFK1=$id;
             $asignado->Clave_EjercicioFK2=$ejercicio;
             $asignado->save();
         }

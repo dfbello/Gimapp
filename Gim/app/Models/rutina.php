@@ -9,9 +9,4 @@ class Rutina extends Model
 {
     protected $primaryKey = 'Clave_Rutina';
     use HasFactory;
-
-    public function asignado(){
-        return $this->belongsTo(Asignado::class,'Clave_RutinaFK1','Clave_Rutina');
-    }
-
 }

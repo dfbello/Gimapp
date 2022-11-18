@@ -108,7 +108,7 @@
         @else
             <div class="col-2">
         @endif
-            <a class="btn btn-outline-success btn-lg"  style="width: 100%" href="/rutina/{{$entrenamiento->rutina->Clave_Rutina}}" role="button">Día {{($loop->index)+1}}</a>
+            <a class="btn btn-outline-success btn-lg"  style="width: 100%" href="/rutinas/{{$entrenamiento->rutina->Clave_Rutina}}" role="button">Día {{($loop->index)+1}}</a>
         </div>
         @endforeach
     </div>

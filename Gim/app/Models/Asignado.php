@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Asignado extends Model
 {
     use HasFactory;
+
 }
