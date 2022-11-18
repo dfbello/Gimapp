@@ -76,7 +76,11 @@ class rutinaController extends Controller
      */
     public function show($id)
     {
-        //
+        $rutina = Rutina::findOrFail($id);
+        return view('rutina.edit', [
+            'rutina' => $rutina,
+            'ejercicios' => Ejercicio::all()
+        ]);
     }
 
     /**

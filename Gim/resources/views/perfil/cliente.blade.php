@@ -70,15 +70,23 @@
                 <strong>Objetivo:</strong> {{$cliente->Objetivos_Cliente }}
             </p>
             <p class="" style="font-size: 25px; font-weight: lighter; ">
-                <strong>Peso:</strong> {{$cliente->Peso_Cliente }}
+                <strong>Peso:</strong> {{$cliente->Peso_Cliente }} kg
             </p>
         </div>
         <div class="col-6" >
             <p class="" style="font-size: 25px; font-weight: lighter; ">
-                <strong>Estatura:</strong> {{$cliente->Estatura_Cliente }}
+                <strong>Estatura:</strong> {{$cliente->Estatura_Cliente }} m
             </p>
             <p class="" style="font-size: 25px; font-weight: lighter; ">
-                <strong>IMC:</strong> {{$cliente->IMC_Cliente }}
+                <strong>IMC: </strong> {{$cliente->IMC_Cliente}} @if($cliente->IMC_Cliente < 18.5)
+                <a class="btn btn-secondary btn-sm">peso insuficiente</a>
+                @elseif ($cliente->IMC_Cliente > 18.5 && $cliente->IMC_Cliente < 24.9)
+                <a class="btn btn-success btn-sm">peso normal</a>
+                @elseif ($cliente->IMC_Cliente > 25.0 && $cliente->IMC_Cliente < 29.9)
+                <a class="btn btn-warning btn-sm">sobrepeso</a>
+                @elseif ($cliente->IMC_Cliente > 30.0)
+                <a class="btn btn-danger btn-sm">obesidad</a>
+                @endif
             </p>
         </div>
     </div>
@@ -93,8 +101,14 @@
 
     <div class="row px-5">
         @foreach ($entrenamientos as $entrenamiento)
-        <div class="col">
-                <a class="btn btn-outline-success btn-lg" href="/entrenamiento" role="button">Día {{($loop->index)+1}}</a>
+        @if($entrenamiento->rutina->nivel === 'basico')
+            <div class="col-6">
+        @elseif($entrenamiento->rutina->nivel === 'medio')
+            <div class="col-4">
+        @else
+            <div class="col-2">
+        @endif
+            <a class="btn btn-outline-success btn-lg"  style="width: 100%" href="/rutina/{{$entrenamiento->rutina->Clave_Rutina}}" role="button">Día {{($loop->index)+1}}</a>
         </div>
         @endforeach
     </div>

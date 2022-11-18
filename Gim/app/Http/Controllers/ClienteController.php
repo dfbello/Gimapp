@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
 use App\Models\Rutina;
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,8 +52,6 @@ class ClienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-
-
     public function create()
     {
         
@@ -88,7 +87,8 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('cliente.edit',
+        ['cliente' => Cliente::findOrFail($id)]);
     }
 
     /**
@@ -100,7 +100,21 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validaData = $request->validate([
+            'Peso_Cliente' => 'required',
+            'Estatura_Cliente' => 'required',
+            'Objetivos_Cliente' => 'required',
+        ]);
+
+        $cliente = Cliente::findOrFail($id);
+        $cliente-> Peso_Cliente = $request->get('Peso_Cliente');
+        $cliente-> Estatura_Cliente = $request->get('Estatura_Cliente');
+        $cliente-> IMC_Cliente = intval(($request->get('Peso_Cliente'))/($request->get('Estatura_Cliente')*$request->get('Estatura_Cliente')));
+        $cliente-> Objetivos_Cliente = $request->get('Objetivos_Cliente');
+
+        $cliente->save();
+
+        return redirect('/cliente');
     }
 
     /**

@@ -9,11 +9,6 @@
             <h1 class="text-center">Clientes</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col-4 ml-5 mb-3">
-            <a href="/entrenamiento/create" class="btn btn-primary btn-sm p-2">Asignar entrenamiento</a>
-        </div>
-    </div>
 
     <div class="row px-5">
         <div class="col">

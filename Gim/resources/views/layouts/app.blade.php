@@ -16,7 +16,7 @@
         @guest
             <div class="col p-0">
         @else
-        <div class="col-2 d-flex flex-column flex-shrink-0 p-3 text-white text-bg-dark mr-0" style="height:100vh;">
+        <div class="position-absolute top-0 start-0 d-flex flex-column flex-shrink-0 p-3 text-white text-bg-dark mr-0" style="height:100vh; width:15%;">
             <ul class="nav nav-pills flex-column mb-auto">
               <li class="nav-item">
                 <a href="/" class="nav-link active" aria-current="page">
@@ -59,7 +59,7 @@
             </ul>
         </div>
 
-        <div class="col-10 p-0">
+        <div class="p-0" style="width:85%; margin-left:15%;">
         @endguest
             <header class="border-bottom text-bg-dark py-2">
                 <div class="container d-flex flex-row-reverse">
@@ -94,9 +94,11 @@
                     </ul>
                 </div>
             </header>
-
-            @yield('content') 
-        </div>
+            <div class="w-100 h-100 bg-light" >
+              @yield('content') 
+            </div>
+            
+      </div>
     </div>
 
 
