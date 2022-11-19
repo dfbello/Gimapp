@@ -37,10 +37,13 @@
             @foreach($asignados as $asignado)
                 @foreach($ejercicios as $ejercicio)
                     @if($ejercicio->Clave_Ejercicio === $asignado->Clave_EjercicioFK2)
-                        <div class="col-5 my-2 border border-info rounded p-4 mr-2" style="box-sizing: border-box;">
-                            <p class="" style="font-size: 25px; font-weight: lighter; "><strong>Ejercicio: </strong> {{$ejercicio->Descripcion_Ejercicio}}</p>
-                            <p class="" style="font-size: 25px; font-weight: lighter; "><strong>Series: </strong> {{$ejercicio->Series_Ejercicio}}</p>
-                            <p class="" style="font-size: 25px; font-weight: lighter; "><strong>Repeticiones: </strong> {{$ejercicio->Repeticiones_Ejercicio}}</p>
+                        <div class="col my-2 border rounded p-4 mr-2 " style="box-sizing: border-box; background-color:#86ced985;">
+                            <p class="" style=""><strong>Ejercicio: </strong> {{$ejercicio->Nombre_Ejercicio}}</p>
+                            <p class="" style=""><strong>Descripcion: </strong> {{$ejercicio->Descripcion_Ejercicio}}</p>
+                            <p class="" style=""><strong>Zona trabajada: </strong> {{$ejercicio->Zona_Trabajada}}</p>
+                            <p class="" style=""><strong>Series: </strong> {{$ejercicio->Series_Ejercicio}}</p>
+                            <p class="" style=""><strong>Repeticiones: </strong> {{$ejercicio->Repeticiones_Ejercicio}}</p>
+                            <iframe width="560" height="315" src="{{$ejercicio->Link_Ejercicio}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     @endif          
                 @endforeach

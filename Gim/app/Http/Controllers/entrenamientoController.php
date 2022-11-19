@@ -73,7 +73,7 @@ class entrenamientoController extends Controller
             $entrenamiento->save();
         }
 
-        return redirect('/entrenamiento');
+        return redirect('/cliente');
     }
 
     /**

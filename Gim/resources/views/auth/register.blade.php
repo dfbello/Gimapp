@@ -63,7 +63,7 @@
             </div>
         @endif
 
-        <button class="w-50 btn btn-lg btn-primary m-auto mt-3" style="display: block">Entrar</button>
+        <button class="w-50 btn btn-lg btn-primary m-auto mt-3" style="display: block">Registrar</button>
     </form>
     
 </div>

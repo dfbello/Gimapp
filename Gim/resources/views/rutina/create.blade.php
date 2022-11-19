@@ -40,7 +40,7 @@
         <tbody>
         @foreach ($ejercicios as $ejercicio)
             <tr>
-            <td>{{$ejercicio->Descripcion_Ejercicio}}</td>
+            <td>{{$ejercicio->Nombre_Ejercicio}}</td>
             <td>{{$ejercicio->Series_Ejercicio}}</td>
             <td>{{$ejercicio->Repeticiones_Ejercicio}}</td>
             <td><input type="checkbox" name="seleccionado[]" value="{{$ejercicio->Clave_Ejercicio}}">

@@ -16,7 +16,7 @@
         @guest
             <div class="col p-0">
         @else
-        <div class="position-absolute top-0 start-0 d-flex flex-column flex-shrink-0 p-3 text-white text-bg-dark mr-0" style="height:100vh; width:15%;">
+        <div class="position-fixed top-0 start-0 d-flex flex-column flex-shrink-0 p-3 text-white text-bg-dark mr-0" style="height:100vh; width:15%;">
             <ul class="nav nav-pills flex-column mb-auto">
               <li class="nav-item">
                 <a href="/" class="nav-link active" aria-current="page">
@@ -41,11 +41,11 @@
                   Rutinas
                 </a>
               </li>
-              <li>
+              <!--<li>
                 <a href="/entrenamiento" class="nav-link text-white" id="btn-menu-lateral">
                   Entrenamientos
                 </a>
-              </li>
+              </li>-->
               <li>
                 <a href="/cliente" class="nav-link text-white" id="btn-menu-lateral">
                   Clientes

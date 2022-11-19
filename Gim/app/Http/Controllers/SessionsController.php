@@ -13,7 +13,7 @@ class SessionsController extends Controller
     public function index(){
         $nombre = Auth::user();
         $cliente = DB::table('clientes')->where('Correo_Cliente',$nombre->email)->first();
-        $entrenamientos = Entrenamiento::where('Clave_ClienteFK2','=',$cliente->Clave_Cliente)->get();;
+        $entrenamientos = Entrenamiento::where('Clave_ClienteFK2','=',$cliente->Clave_Cliente)->get();
         
         return view('perfil.cliente', ['cliente'=> $cliente, 'entrenamientos' => $entrenamientos]);
     }

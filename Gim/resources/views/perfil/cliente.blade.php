@@ -54,7 +54,6 @@
                   </svg> {{$cliente->Clave_Cliente  }}
             </p>
 
-            <button type="button" class="btn btn-secondary" style="font-size: 15px;">Cambiar Contraseña</button>
         </div>
     </div>
     <hr style="width: 90%; margin:10px auto 20px auto; ">
@@ -63,6 +62,8 @@
             <h1 class="text-left">Tus indicadores</h1>
         </div>
     </div>
+
+    @if($cliente->Objetivos_Cliente)
 
     <div class="row justify-content-center px-5">
         <div class="col-6">
@@ -91,14 +92,12 @@
         </div>
     </div>
 
-
     <hr style="width: 90%; margin:10px auto 20px auto; ">
     <div class="row justify-content-center mx-5">
         <div class="col-12 mb-2">
             <h1 class="text-left">Tus Entrenamientos</h1>
         </div>
     </div>
-
     <div class="row px-5">
         @foreach ($entrenamientos as $entrenamiento)
         @if($entrenamiento->rutina->nivel === 'basico')
@@ -112,7 +111,17 @@
         </div>
         @endforeach
     </div>
-    
+
+    @else
+
+    <div class="row px-5">
+        <div class="col">
+            <h3 class="">Aún no te han realizado una valoración</h3>
+            <button type="button" class="btn btn-primary " style="">Programar valoración</button>
+        </div>
+    </div>
+
+    @endif
 </div>
     
     

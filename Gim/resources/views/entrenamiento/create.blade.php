@@ -10,7 +10,7 @@
 
 <div class="row justify-content-center">
     <div class="col-12 px-5">
-        <a class="btn btn-secondary mb-3" href="/entrenamiento">Back</a>
+        <a class="btn btn-secondary mb-3" href="/cliente">Back</a>
 
         <form> 
             <select name="objetivo" id="objetivo" class="form-control col-4 d-inline">

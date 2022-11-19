@@ -14,7 +14,7 @@ class CreateRecursosTable extends Migration
     public function up()
     {
         Schema::create('recursos', function (Blueprint $table) {
-            $table->integer('Clave_Recurso',true);
+            $table->integer('Clave_Recurso', true);
             $table->string('Tipo_Recurso', 100)->nullable();
             $table->string('Descripcion_Recurso', 200)->nullable();
             $table->string('QR_Recurso', 50)->nullable();

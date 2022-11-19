@@ -34,8 +34,8 @@ class RegisterController extends Controller
         $cliente->Direccion_Cliente = $request->get('direccion');
         $cliente->Correo_Cliente = $request->get('email');
         $cliente->Edad_ACliente = $request->get('edad');
-        $cliente->Contrasenia_Cliente = $request->get('password');
         $cliente->Suscripcion_Cliente = $request->get('plan');
+        $cliente->Fecha_Pago_Cliente = date('Y-m-d');
         
         $cliente->save();
         

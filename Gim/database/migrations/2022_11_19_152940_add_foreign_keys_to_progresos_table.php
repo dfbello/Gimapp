@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeysToEjerciciosTable extends Migration
+class AddForeignKeysToProgresosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddForeignKeysToEjerciciosTable extends Migration
      */
     public function up()
     {
-        Schema::table('ejercicios', function (Blueprint $table) {
-            $table->foreign(['Clave_RecursoFK1'], 'fk_fRecursoFK1')->references(['Clave_Recurso'])->on('recursos');
+        Schema::table('progresos', function (Blueprint $table) {
+            $table->foreign(['Clave_ClienteFK4'], 'fk_fClienteFK4')->references(['Clave_Cliente'])->on('clientes');
         });
     }
 
@@ -25,8 +25,8 @@ class AddForeignKeysToEjerciciosTable extends Migration
      */
     public function down()
     {
-        Schema::table('ejercicios', function (Blueprint $table) {
-            $table->dropForeign('fk_fRecursoFK1');
+        Schema::table('progresos', function (Blueprint $table) {
+            $table->dropForeign('fk_fClienteFK4');
         });
     }
 }

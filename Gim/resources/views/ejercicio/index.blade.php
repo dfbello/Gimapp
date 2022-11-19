@@ -21,10 +21,13 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Nombre</th>
                         <th>Recurso</th>
                         <th>Descripción</th>
+                        <th>Zona Trabajada</th>
                         <th>Series</th>
                         <th>Repeticiones</th>
+                        <th>Link</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -32,10 +35,13 @@
                 @foreach ($ejercicios as $ejercicio)
                 <tr>
                     <td>{{$ejercicio->Clave_Ejercicio}}</td>
+                    <td>{{$ejercicio->Nombre_Ejercicio}}</td>
                     <td>{{$ejercicio->recurso->Nombre_Recurso ?? 'Ninguno'}}</td>
-                    <td>{{$ejercicio->Descripcion_Ejercicio }}</td>
+                    <td>{{$ejercicio->Descripcion_Ejercicio}}</td>
+                    <td>{{$ejercicio->Zona_Trabajada}}</td>
                     <td>{{$ejercicio->Series_Ejercicio	 }}</td>
                     <td>{{$ejercicio->Repeticiones_Ejercicio }}</td>
+                    <td><a href="{{$ejercicio->Link_Ejercicio}}" target="_blank">Link</a> </td>
                     <td><a class="btn btn-outline-primary btn-sm" href="/ejercicio/{{$ejercicio->Clave_Ejercicio}}/edit" role="button">Editar</a></td>
                     <td>
                         <button type="button" class="btn btn-outline-danger btn-sm btn-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="{{$ejercicio->Clave_Ejercicio}}" id ="btn-delete">

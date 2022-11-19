@@ -43,16 +43,21 @@ class ejercicioController extends Controller
     public function store(Request $request)
     {   
         $validaData = $request->validate([
+            'Nombre_Ejercicio' => 'required',
             'Descripcion_Ejercicio' => 'required',
+            'zona' => 'required',
             'Series_Ejercicio' => 'required',
             'Repeticiones_Ejercicio' => 'required',
+            'Link_Ejercicio' => 'required',
         ]);
 
         $ejercicio = new Ejercicio();
-
+        $ejercicio-> Nombre_Ejercicio = $request->get('Nombre_Ejercicio');
         $ejercicio-> Descripcion_Ejercicio = $request->get('Descripcion_Ejercicio');
+        $ejercicio-> Zona_Trabajada = $request->get('zona');
         $ejercicio-> Series_Ejercicio = $request->get('Series_Ejercicio');
         $ejercicio-> Repeticiones_Ejercicio = $request->get('Repeticiones_Ejercicio');
+        $ejercicio-> Link_Ejercicio = $request->get('Link_Ejercicio');
         $ejercicio-> Clave_RecursoFK1 = $request->get('recurso');
 
         $ejercicio->save();
@@ -96,15 +101,21 @@ class ejercicioController extends Controller
     public function update(Request $request, $id)
     {   
         $validaData = $request->validate([
+            'Nombre_Ejercicio' => 'required',
             'Descripcion_Ejercicio' => 'required',
+            'zona' => 'required',
             'Series_Ejercicio' => 'required',
             'Repeticiones_Ejercicio' => 'required',
+            'Link_Ejercicio' => 'required',
         ]);
 
         $ejercicio = Ejercicio::findOrFail($id);
+        $ejercicio-> Nombre_Ejercicio = $request->get('Nombre_Ejercicio');
         $ejercicio-> Descripcion_Ejercicio = $request->get('Descripcion_Ejercicio');
+        $ejercicio-> Zona_Trabajada = $request->get('zona');
         $ejercicio-> Series_Ejercicio = $request->get('Series_Ejercicio');
         $ejercicio-> Repeticiones_Ejercicio = $request->get('Repeticiones_Ejercicio');
+        $ejercicio-> Link_Ejercicio = $request->get('Link_Ejercicio');
         $ejercicio-> Clave_RecursoFK1 = $request->get('recurso');
 
         $ejercicio->save();
