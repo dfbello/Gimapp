@@ -9,6 +9,8 @@ use App\Http\Controllers\rutinaController;
 use App\Http\Controllers\entrenamientoController;
 use App\Http\Controllers\groupClassController;
 use App\Http\Controllers\recursoController;
+use App\Http\Controllers\AnuncioController;
+use App\Http\Controllers\CantUsuariosController;
 
 
 Route::get('/', function () {
@@ -27,4 +29,6 @@ Route::resource('/entrenamiento', entrenamientoController::class);
 Route::resource('/rutinas', rutinaController::class);
 Route::resource('/recursos', recursoController::class);
 Route::resource('/group_class', groupClassController::class);
+Route::resource('/anuncios', AnuncioController::class);
+Route::resource('/cantusuarios', CantUsuariosController::class);
 Route::get('/cliente/{id}/asignarEntrenamiento',[ClienteController::class,'asignarEntrenamiento']);
