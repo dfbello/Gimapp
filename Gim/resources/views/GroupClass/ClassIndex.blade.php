@@ -9,6 +9,7 @@
             <h1 class="text-center">Clases grupales</h1>
         </div>
     </div>
+   
     <div class="row">
         <div class="col-4 ml-5 mb-3">
             <a class="btn btn-primary btn-sm p-2" href="/group_class/create">Nueva clase grupal</a>
@@ -39,7 +40,13 @@
                     <td>{{ $clase->Duracion }}</td>
                     <td>{{ $clase->entrenador->Nombre_Entrenador ?? 'None'}}</td>
                     <td><a class="btn btn-outline-primary btn-sm" href="/group_class/{{$clase->Clave_Clase}}/edit" role="button">Editar</a></td>
-                    <td><a id="apuntarse" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal2" nombresito= "{{$clase->Nombre_Clase}}" data-bs-whatever="{{$clase->Clave_Clase}}" role="button">Apuntarse</a>
+                    @if
+                        <td><a class="btn btn-outline-primary btn-sm disabled">Sin cupos</a></td>
+                    @elseif(in_array($cliente->Clave_Cliente, $clase->clientes->pluck('Clave_Cliente')->toArray()))
+                        <td><a class="btn btn-outline-primary btn-sm disabled">Apuntado/a</a></td>
+                    @else    
+                        <td><a id="apuntarse" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal2" nombresito= "{{$clase->Nombre_Clase}}" data-bs-whatever="{{$clase->Clave_Clase}}" role="button">Apuntarse</a>
+                    @endif
                     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
                                 <div class="modal-dialog">
                                 <div class="modal-content">
@@ -48,7 +55,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                    <p>{{$cliente->Nombre_Cliente}}, ¿Deseas inscribirte a esta clase?</p>
+                                    <p>¿Deseas inscribirte a esta clase?</p>
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

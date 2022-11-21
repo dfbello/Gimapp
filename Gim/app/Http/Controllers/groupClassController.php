@@ -22,7 +22,7 @@ class groupClassController extends Controller
         return view('GroupClass.ClassIndex', [
             'cliente' => $cliente ,
             'clases' => Clase::all(),
-            'entrenador' => Entrenador::all()
+            'entrenador' => Entrenador::all(),
         ]);
 
     }

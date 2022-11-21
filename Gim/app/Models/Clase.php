@@ -21,5 +21,14 @@ class Clase extends Model
         return $this->belongsTo(Entrenador::class, 'Clave_EntrenadorFK1', 'Clave_Entrenador');
     }
     
+    /**
+     * The clientes that belong to the Clase
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function clientes()
+    {
+        return $this->belongsToMany(Cliente::class, 'asignarclases', 'Clave_ClaseFK1', 'Clave_ClienteFK3');
+    }
 }
 
