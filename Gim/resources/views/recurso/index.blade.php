@@ -30,6 +30,7 @@
                         <th>Cantidad</th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 
@@ -42,6 +43,7 @@
                         <td>{{$recurso->Nombre_Recurso}}</td>
                         <td>{{$recurso->Cantidad_Recurso}}</td>
                         @can('recurso.edit')
+                        <td><a class="btn btn-outline-primary btn-sm" href="/recursos/{{$recurso->Clave_Recurso}}" role="button">Uso</a></td>
                         <td><a class="btn btn-outline-primary btn-sm" href="/recursos/{{$recurso->Clave_Recurso}}/edit" role="button">Editar</a></td>
                         @endcan
                         @can('recurso.destroy')

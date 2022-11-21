@@ -74,6 +74,16 @@
                   Clases
                 </a>
               </li>
+              <li>
+                <a href="/anuncios" class="nav-link text-white" id="btn-menu-lateral">
+                  Anuncios
+                </a>
+              </li>
+              <li>
+                <a href="/cantusuarios" class="nav-link text-white" id="btn-menu-lateral">
+                  Cantidad Usuarios
+                </a>
+              </li>
             </ul>
         </div>
 
