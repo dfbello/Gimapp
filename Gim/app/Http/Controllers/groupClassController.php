@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Entrenador;
 use App\Models\Clase;
 use Illuminate\Http\Request;
@@ -15,8 +17,10 @@ class groupClassController extends Controller
      */
     public function index()
     {
-        
+        $nombre = Auth::user();
+        $cliente = DB::table('clientes')->where('Correo_Cliente',$nombre->email)->first();
         return view('GroupClass.ClassIndex', [
+            'cliente' => $cliente ,
             'clases' => Clase::all(),
             'entrenador' => Entrenador::all()
         ]);
@@ -131,5 +135,23 @@ class groupClassController extends Controller
         $clase->delete();
 
         return redirect('/group_class'); 
+    }
+
+    public function inscribirCliente($id)
+    {
+        $nombre = Auth::user();
+        $cliente = DB::table('clientes')->where('Correo_Cliente',$nombre->email)->first();
+        $clase = Clase::findOrFail($id);
+        //inserta id de clase y cliente en la tabla de asignacion
+        DB::table('asignarclases')->insert([
+            'Clave_ClaseFK1' => $clase->Clave_Clase,
+            'Clave_ClienteFK3' => $cliente->Clave_Cliente
+        ]);
+        //actualiza el numero de cupos
+        DB::table('clases')->where('Clave_Clase',$clase ->Clave_Clase)->update([
+            'Cupos_Clase' => $clase -> Cupos_Clase - 1
+        ]);
+        
+        return redirect('/group_class');
     }
 }

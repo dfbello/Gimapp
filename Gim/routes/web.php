@@ -27,4 +27,6 @@ Route::resource('/entrenamiento', entrenamientoController::class);
 Route::resource('/rutinas', rutinaController::class);
 Route::resource('/recursos', recursoController::class);
 Route::resource('/group_class', groupClassController::class);
+Route::post('/group_class/{id}/inscribirse',[groupClassController::class,'inscribirCLiente']);
 Route::get('/cliente/{id}/asignarEntrenamiento',[ClienteController::class,'asignarEntrenamiento']);
+
