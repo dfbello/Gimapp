@@ -29,6 +29,7 @@
                         <th>Cantidad</th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 
@@ -40,6 +41,7 @@
                         <td>{{$recurso->QR_Recurso}}</td>
                         <td>{{$recurso->Nombre_Recurso}}</td>
                         <td>{{$recurso->Cantidad_Recurso}}</td>
+                        <td><a class="btn btn-outline-primary btn-sm" href="/recursos/{{$recurso->Clave_Recurso}}" role="button">Uso</a></td>
                         <td><a class="btn btn-outline-primary btn-sm" href="/recursos/{{$recurso->Clave_Recurso}}/edit" role="button">Editar</a></td>
                         <td>
                             <button type="button" class="btn btn-outline-danger btn-sm btn-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="{{$recurso->Clave_Recurso}}" id ="btn-delete">
