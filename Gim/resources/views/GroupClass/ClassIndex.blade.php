@@ -40,7 +40,7 @@
                     <td>{{ $clase->Duracion }}</td>
                     <td>{{ $clase->entrenador->Nombre_Entrenador ?? 'None'}}</td>
                     <td><a class="btn btn-outline-primary btn-sm" href="/group_class/{{$clase->Clave_Clase}}/edit" role="button">Editar</a></td>
-                    @if
+                    @if($clase->Cupos_Clase < 1)
                         <td><a class="btn btn-outline-primary btn-sm disabled">Sin cupos</a></td>
                     @elseif(in_array($cliente->Clave_Cliente, $clase->clientes->pluck('Clave_Cliente')->toArray()))
                         <td><a class="btn btn-outline-primary btn-sm disabled">Apuntado/a</a></td>
