@@ -41,7 +41,7 @@ class RegisterController extends Controller
         
         Mail::to($request->get('email'))->send(new RegistroExitoso($cliente));
 
-        $user = User::create(request(['name', 'email', 'password']));
+        $user = User::create(request(['name', 'email', 'password']))->assignRole('Client');
 
         return redirect()->to('/login');
         

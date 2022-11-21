@@ -26,31 +26,49 @@
                     </svg> GimApp
                 </a>
               </li>
+              @can('recurso.index')
               <li>
                 <a href="/recursos" class="nav-link text-white" id="btn-menu-lateral">
                   Recursos
                 </a>
               </li>
+              @endcan
+              @can('ejercicio.index')
               <li>
                 <a href="/ejercicio" class="nav-link text-white" id="btn-menu-lateral">
                   Ejercicios
                 </a>
               </li>
+              @endcan
+
+              @can('rutina.index')
               <li>
                 <a href="/rutinas" class="nav-link text-white" id="btn-menu-lateral">
                   Rutinas
                 </a>
               </li>
+              @endcan
+
+              @can('entrenador.index')
+              <li>
+                <a href="/entrenador" class="nav-link text-white" id="btn-menu-lateral">
+                  Entrenadores
+                </a>
+              </li>
+              @endcan
+
               <!--<li>
                 <a href="/entrenamiento" class="nav-link text-white" id="btn-menu-lateral">
                   Entrenamientos
                 </a>
               </li>-->
+              @can('cliente.index')
               <li>
                 <a href="/cliente" class="nav-link text-white" id="btn-menu-lateral">
                   Clientes
                 </a>
               </li>
+              @endcan
               <li>
                 <a href="/group_class" class="nav-link text-white" id="btn-menu-lateral">
                   Clases

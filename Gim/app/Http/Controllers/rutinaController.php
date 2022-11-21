@@ -16,6 +16,17 @@ class rutinaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('can:rutina.index')->only('index');
+        $this->middleware('can:rutina.create')->only('create');
+        $this->middleware('can:rutina.create')->only('store');
+        $this->middleware('can:rutina.edit')->only('edit');
+        $this->middleware('can:rutina.edit')->only('update');
+        $this->middleware('can:rutina.destroy')->only('destroy');
+    }
+
+
     public function index()
     {
         //
