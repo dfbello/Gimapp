@@ -106,7 +106,7 @@ class groupClassController extends Controller
         $validaData = $request->validate([
             'nombre' => 'required|min:2|string',
             'descripcion' => 'required|min:5|string',
-            'cupos' => 'required|between:5,60|integer',
+            'cupos' => 'required|between:0,60|integer',
             'datetime' => 'required',
             'duracion' => 'required|between:5,180|integer'
         ]);
