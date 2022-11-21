@@ -9,6 +9,7 @@ use App\Http\Controllers\rutinaController;
 use App\Http\Controllers\entrenamientoController;
 use App\Http\Controllers\groupClassController;
 use App\Http\Controllers\recursoController;
+use App\Http\Controllers\EntrenadorController;
 
 
 Route::get('/', function () {
@@ -27,6 +28,7 @@ Route::resource('/entrenamiento', entrenamientoController::class);
 Route::resource('/rutinas', rutinaController::class);
 Route::resource('/recursos', recursoController::class);
 Route::resource('/group_class', groupClassController::class);
-Route::post('/group_class/{id}/inscribirse',[groupClassController::class,'inscribirCliente'])->middleware('can:cliente');
-Route::get('/cliente/{id}/asignarEntrenamiento',[ClienteController::class,'asignarEntrenamiento'])->middleware('can:trainer.admin');
+Route::resource('/entrenador', EntrenadorController::class);
+Route::post('/group_class/{id}/inscribirse',[groupClassController::class,'inscribirCliente']);
+Route::get('/cliente/{id}/asignarEntrenamiento',[ClienteController::class,'asignarEntrenamiento']);
 
