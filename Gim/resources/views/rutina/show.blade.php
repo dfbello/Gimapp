@@ -34,20 +34,17 @@
     </div>
 
     <div class="row justify-content-center mx-5">
-            @foreach($asignados as $asignado)
-                @foreach($ejercicios as $ejercicio)
-                    @if($ejercicio->Clave_Ejercicio === $asignado->Clave_EjercicioFK2)
+            @foreach($rutina->ejercicios as $ejercicio)
                         <div class="col my-2 border rounded p-4 mr-2 " style="box-sizing: border-box; background-color:#86ced985;">
                             <p class="" style=""><strong>Ejercicio: </strong> {{$ejercicio->Nombre_Ejercicio}}</p>
                             <p class="" style=""><strong>Descripcion: </strong> {{$ejercicio->Descripcion_Ejercicio}}</p>
                             <p class="" style=""><strong>Zona trabajada: </strong> {{$ejercicio->Zona_Trabajada}}</p>
                             <p class="" style=""><strong>Series: </strong> {{$ejercicio->Series_Ejercicio}}</p>
                             <p class="" style=""><strong>Repeticiones: </strong> {{$ejercicio->Repeticiones_Ejercicio}}</p>
-                            <iframe width="560" height="315" src="{{$ejercicio->Link_Ejercicio}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="{{$ejercicio->Link_Ejercicio}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin:auto; display:block;"></iframe>
                         </div>
-                    @endif          
-                @endforeach
             @endforeach
+
     </div>
 
 

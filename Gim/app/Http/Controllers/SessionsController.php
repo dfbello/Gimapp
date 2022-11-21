@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Progreso;
 use App\Models\Entrenamiento;
 
 class SessionsController extends Controller
@@ -14,8 +15,13 @@ class SessionsController extends Controller
         $nombre = Auth::user();
         $cliente = DB::table('clientes')->where('Correo_Cliente',$nombre->email)->first();
         $entrenamientos = Entrenamiento::where('Clave_ClienteFK2','=',$cliente->Clave_Cliente)->get();
+        $valoraciones = DB::table('progresos')->where('Clave_ClienteFK4',$cliente->Clave_Cliente)->get();
         
-        return view('perfil.cliente', ['cliente'=> $cliente, 'entrenamientos' => $entrenamientos]);
+        return view('perfil.cliente', [
+            'cliente'=> $cliente, 
+            'entrenamientos' => $entrenamientos,
+            'valoraciones' => $valoraciones
+        ]);
     }
 
     public function create(){

@@ -77,13 +77,9 @@ class rutinaController extends Controller
     public function show($id)
     {
         $rutina = Rutina::findOrFail($id);
-        $sql = "SELECT * FROM `asignados` WHERE `Clave_RutinaFK1` = ?";
-        $asignados = DB::select($sql,array($id));
 
         return view('rutina.show', [
-            'rutina' => $rutina,
-            'asignados' => $asignados,
-            'ejercicios' => Ejercicio::all()
+            'rutina' => $rutina
         ]);
     }
 

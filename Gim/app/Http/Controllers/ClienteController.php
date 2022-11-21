@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
 use App\Models\Rutina;
-use GuzzleHttp\Client;
+use App\Models\Progreso;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,6 +38,7 @@ class ClienteController extends Controller
                 $rutinas = DB::select($sql,array($objetivo, $nivel));
             }
         }
+
         return view('entrenamiento.create',[
             'cliente' => Cliente::findOrFail($id),
             'rutinas' => $rutinas,
@@ -113,6 +114,15 @@ class ClienteController extends Controller
         $cliente-> Objetivos_Cliente = $request->get('Objetivos_Cliente');
 
         $cliente->save();
+
+        $progreso = new Progreso();
+        $progreso->Clave_ClienteFK4 = $cliente->Clave_Cliente;
+        $progreso->Peso_Cliente2 = $request->get('Peso_Cliente');
+        $progreso->Estatura_Cliente2 = $request->get('Estatura_Cliente');
+        $progreso->IMC_Cliente2 = intval(($request->get('Peso_Cliente'))/($request->get('Estatura_Cliente')*$request->get('Estatura_Cliente')));
+        $progreso->Objetivos_Cliente2 = $request->get('Objetivos_Cliente');
+
+        $progreso->save();
 
         return redirect('/cliente');
     }
