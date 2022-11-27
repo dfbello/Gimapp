@@ -4,9 +4,20 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Entrenador;
+use Illuminate\Support\Facades\DB;
 
 class EntrenadorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:entrenador.index')->only('index');
+        $this->middleware('can:entrenador.create')->only('create');
+        $this->middleware('can:entrenador.create')->only('store');
+        $this->middleware('can:entrenador.edit')->only('edit');
+        $this->middleware('can:entrenador.edit')->only('update');
+        $this->middleware('can:entrenador.destroy')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,9 +57,7 @@ class EntrenadorController extends Controller
             'edad' => 'required|min:14|max:99|integer',
             'descripcion' => 'required|min:10|max:200|string',
             'horario' => 'required|min:5|max:70|string',
-            'password' => 'min:3|required|confirmed'
-
-            
+            'password' => 'min:3|required|confirmed' 
         ]);
 
         $entrenador = new Entrenador();
@@ -63,7 +72,7 @@ class EntrenadorController extends Controller
     
         $entrenador->save();
         
-        $user = User::create(request(['name', 'email', 'password']));
+        $user = User::create(request(['name', 'email', 'password']))->assignRole('Trainer');
 
         return redirect('/entrenador');
     }
@@ -76,7 +85,10 @@ class EntrenadorController extends Controller
      */
     public function show($id)
     {
-        //
+        $entrenador = Entrenador::findOrFail($id);
+        return view('perfil.entrenador', [
+            'cliente' => $entrenador
+        ]);
     }
 
     /**
@@ -135,6 +147,17 @@ class EntrenadorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $entrenador = Entrenador::findOrFail($id);
+    
+        $clases = DB::table('clases')->where('Clave_EntrenadorFK1',$entrenador->Clave_Entrenador);
+        
+        $clasesAsig = DB::table('asignarclases')->where('Clave_ClaseFK1',$clases->Clave_Clase);
+        $clasesAsig->delete();
+
+        $clases->delete();
+
+        $entrenador->delete();
+
+        return redirect('/entrenador');
     }
 }

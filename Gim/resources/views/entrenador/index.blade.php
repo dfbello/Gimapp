@@ -9,12 +9,13 @@
             <h1 class="text-center">Entrenadores</h1>
         </div>
     </div>
-
+    @can('entrenador.create') 
     <div class="row">
         <div class="col-4 ml-5 mb-3">
             <a class="btn btn-primary btn-sm p-2" href="/entrenador/create">Nuevo/a Entrenador</a>
         </div>
     </div>
+    @endcan
 
     <div class="row px-5">
         <div class="col">
@@ -35,7 +36,11 @@
                     <td>{{$entrenador->Descripcion_Entrenador}}</td>
                     <td>{{$entrenador->Edad_Entrenador}}</td>
                     <td>{{$entrenador->Horario_Entrenador}}</td>
+                    <td><a class="btn btn-outline-primary btn-sm" href="/entrenador/{{$entrenador->Clave_Entrenador}}/" role="button">Ver</a></td>
+                    @can('entrenador.edit')
                     <td><a class="btn btn-outline-primary btn-sm" href="/entrenador/{{$entrenador->Clave_Entrenador}}/edit" role="button">Editar</a></td>
+                    @endcan
+                    @can('entrenador.destroy')
                     <td>
                         <button type="button" class="btn btn-outline-danger btn-sm btn-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" nombresito="{{$entrenador->Nombre_Entrenador}}" data-bs-whatever="{{$entrenador->Clave_Entrenador}}" id ="btn-delete">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +48,7 @@
                                 <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                             </svg>
                         </button>
-                        
+
                         <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -67,7 +72,8 @@
                                 </div>
                                 </div> 
                             </div>
-                        </td>
+                    </td>
+                    @endcan
                 </tr>
                 @endforeach
             </table>

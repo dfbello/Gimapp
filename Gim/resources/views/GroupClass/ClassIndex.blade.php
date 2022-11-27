@@ -9,12 +9,13 @@
             <h1 class="text-center">Clases grupales</h1>
         </div>
     </div>
-   
+    @can('clase.create')
     <div class="row">
         <div class="col-4 ml-5 mb-3">
             <a class="btn btn-primary btn-sm p-2" href="/group_class/create">Nueva clase grupal</a>
         </div>
     </div>
+    @endcan
 
     <div class="row px-5">
         <div class="col">
@@ -39,7 +40,10 @@
                     <td>{{ $clase->Horario_Clase }}</td>
                     <td>{{ $clase->Duracion }}</td>
                     <td>{{ $clase->entrenador->Nombre_Entrenador ?? 'None'}}</td>
+                    @can('clase.edit')
                     <td><a class="btn btn-outline-primary btn-sm" href="/group_class/{{$clase->Clave_Clase}}/edit" role="button">Editar</a></td>
+                    @endcan
+                    @can('clase.inscribirCliente')
                     @if($clase->Cupos_Clase < 1)
                         <td><a class="btn btn-outline-primary btn-sm disabled">Sin cupos</a></td>
                     @elseif(in_array($cliente->Clave_Cliente, $clase->clientes->pluck('Clave_Cliente')->toArray()))
@@ -68,6 +72,8 @@
                                 </div> 
                             </div>
                     </td>
+                    @endcan
+                    @can('clase.destroy')
                     <td>
                         <button type="button" class="btn btn-outline-danger btn-sm btn-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" nombresito="{{$clase->Nombre_Clase}}" data-bs-whatever="{{$clase->Clave_Clase}}" id ="btn-delete">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -99,7 +105,8 @@
                                 </div>
                                 </div> 
                             </div>
-                        </td>
+                    </td>
+                    @endcan
                 </tr>
             @endforeach 
             </table>

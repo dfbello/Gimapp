@@ -28,9 +28,11 @@
                         <th>QR</th>
                         <th>Nombre</th>
                         <th>Cantidad</th>
+                        @can('recurso.edit')
                         <th></th>
                         <th></th>
                         <th></th>
+                        @endcan
                     </tr>
                 </thead>
                 

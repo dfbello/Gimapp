@@ -9,6 +9,16 @@ use App\Models\Asignado;
 
 class ejercicioController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:ejercicio.index')->only('index');
+        $this->middleware('can:ejercicio.create')->only('create');
+        $this->middleware('can:ejercicio.create')->only('store');
+        $this->middleware('can:ejercicio.edit')->only('edit');
+        $this->middleware('can:ejercicio.edit')->only('update');
+        $this->middleware('can:ejercicio.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *

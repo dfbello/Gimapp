@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 
 class groupClassController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:clase.index')->only('index');
+        $this->middleware('can:clase.create')->only('create');
+        $this->middleware('can:clase.create')->only('store');
+        $this->middleware('can:clase.edit')->only('edit');
+        $this->middleware('can:clase.edit')->only('update');
+        $this->middleware('can:clase.inscribirCliente')->only('inscribirCliente');
+        $this->middleware('can:clase.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -132,6 +142,8 @@ class groupClassController extends Controller
     public function destroy($id)
     {
         $clase = Clase::findOrFail($id);
+        $clasesAsig = DB::table('asignarclases')->where('Clave_ClaseFK1',$clase->Clave_Clase);
+        $clasesAsig->delete();
         $clase->delete();
 
         return redirect('/group_class'); 

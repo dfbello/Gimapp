@@ -14,13 +14,21 @@ class SessionsController extends Controller
     public function index(){
         $nombre = Auth::user();
         $cliente = DB::table('clientes')->where('Correo_Cliente',$nombre->email)->first();
-        $entrenamientos = Entrenamiento::where('Clave_ClienteFK2','=',$cliente->Clave_Cliente)->get();
-        $valoraciones = DB::table('progresos')->where('Clave_ClienteFK4',$cliente->Clave_Cliente)->get();
-        return view('perfil.cliente', [
-            'cliente'=> $cliente, 
-            'entrenamientos' => $entrenamientos,
-            'valoraciones' => $valoraciones
-        ]);
+        if($cliente){
+            $entrenamientos = Entrenamiento::where('Clave_ClienteFK2','=',$cliente->Clave_Cliente)->get();
+            $valoraciones = DB::table('progresos')->where('Clave_ClienteFK4',$cliente->Clave_Cliente)->get();
+            return view('perfil.cliente', [
+                'cliente'=> $cliente, 
+                'entrenamientos' => $entrenamientos,
+                'valoraciones' => $valoraciones
+            ]);
+        }else{
+            $cliente = DB::table('entrenadors')->where('Correo_Entrenador',$nombre->email)->first();
+            return view('perfil.entrenador', [
+                'cliente'=> $cliente
+            ]);
+        }
+        
     }
 
     public function create(){

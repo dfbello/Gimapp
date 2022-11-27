@@ -23,6 +23,7 @@ class rutinaController extends Controller
         $this->middleware('can:rutina.create')->only('store');
         $this->middleware('can:rutina.edit')->only('edit');
         $this->middleware('can:rutina.edit')->only('update');
+        $this->middleware('can:rutina.show')->only('show');
         $this->middleware('can:rutina.destroy')->only('destroy');
     }
 

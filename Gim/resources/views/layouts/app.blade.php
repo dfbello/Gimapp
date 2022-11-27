@@ -69,11 +69,13 @@
                 </a>
               </li>
               @endcan
+              @can('clase.index')
               <li>
                 <a href="/group_class" class="nav-link text-white" id="btn-menu-lateral">
                   Clases
                 </a>
               </li>
+              @endcan
               <!--<li>
                 <a href="/anuncios" class="nav-link text-white" id="btn-menu-lateral">
                   Anuncios
@@ -84,11 +86,13 @@
                   Cantidad Usuarios
                 </a>
               </li>
+              @can('trainer.admin')
               <li>
                 <a href="{{route('register.index')}}" class="nav-link text-white" id="btn-menu-lateral">
                   Registrar usuario
                 </a>
               </li>
+              @endcan
             </ul>
         </div>
 

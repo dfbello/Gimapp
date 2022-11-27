@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\Auth;
 
 class ClienteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:cliente.index')->only('index');
+        $this->middleware('can:cliente.index')->only('asignarEntrenamiento');
+        $this->middleware('can:cliente.index')->only('edit');
+        $this->middleware('can:cliente.index')->only('update');
+        $this->middleware('can:cliente.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *

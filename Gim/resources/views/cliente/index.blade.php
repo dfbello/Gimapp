@@ -19,6 +19,7 @@
                         <th>Nombre</th>
                         <th>Edad</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 @foreach ($clientes as $cliente)
