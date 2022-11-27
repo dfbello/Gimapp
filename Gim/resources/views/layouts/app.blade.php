@@ -74,14 +74,19 @@
                   Clases
                 </a>
               </li>
-              <li>
+              <!--<li>
                 <a href="/anuncios" class="nav-link text-white" id="btn-menu-lateral">
                   Anuncios
                 </a>
-              </li>
+              </li>-->
               <li>
                 <a href="/cantusuarios" class="nav-link text-white" id="btn-menu-lateral">
                   Cantidad Usuarios
+                </a>
+              </li>
+              <li>
+                <a href="{{route('register.index')}}" class="nav-link text-white" id="btn-menu-lateral">
+                  Registrar usuario
                 </a>
               </li>
             </ul>
@@ -98,9 +103,6 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('login.create')}}" class="nav-link text-light" aria-current="page" style="font-size: 16px">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('register.index')}}" class="nav-link text-light" aria-current="page" style="font-size: 16px">Registro</a>
                             </li>
                         @else
                             <li class="nav-item">

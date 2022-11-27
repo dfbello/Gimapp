@@ -12,13 +12,13 @@
     </div>
 
     <div class="row justify-content-center mx-5">
-        <div class="col-4 my-3">
+        <div class="col my-3">
             <p class="" style="font-size: 25px; font-weight: lighter; ">
                 <strong>Objetivo:</strong> {{$rutina->Objetivo }}
             </p>
         </div>
 
-        <div class="col-4 my-3">
+        <div class="col my-3">
             <p class="" style="font-size: 25px; font-weight: lighter; ">
                 <strong>Nivel:</strong> {{$rutina->nivel }}
             </p>
@@ -44,7 +44,6 @@
                             <iframe width="560" height="315" src="{{$ejercicio->Link_Ejercicio}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin:auto; display:block;"></iframe>
                         </div>
             @endforeach
-
     </div>
 
 

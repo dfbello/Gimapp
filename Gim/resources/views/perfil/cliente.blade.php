@@ -112,7 +112,7 @@
     <hr style="width: 90%; margin:10px auto 20px auto; ">
     <div class="row justify-content-center mx-5">
         <div class="col-12 mb-2">
-            <h1 class="text-left">Tus Entrenamientos</h1>
+            <h1 class="text-left">Tus Rutinas</h1>
         </div>
     </div>
     <div class="row px-5">

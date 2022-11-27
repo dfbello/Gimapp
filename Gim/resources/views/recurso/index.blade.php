@@ -11,7 +11,7 @@
     </div>
     @can('recurso.create')
     <div class="row">
-        <div class="col-4 ml-5 mb-3">
+        <div class="col-4S ml-5 mb-3">
             <a class="btn btn-primary btn-sm p-2" href="/recursos/create">Crear un nuevo recurso</a>
         </div>
     </div>

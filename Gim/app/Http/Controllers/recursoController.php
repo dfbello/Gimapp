@@ -13,6 +13,17 @@ use Illuminate\Http\Request;
 
 class RecursoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:recurso.index')->only('index');
+        $this->middleware('can:recurso.create')->only('create');
+        $this->middleware('can:recurso.create')->only('store');
+        $this->middleware('can:recurso.edit')->only('edit');
+        $this->middleware('can:recurso.edit')->only('update');
+        $this->middleware('can:recurso.destroy')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
