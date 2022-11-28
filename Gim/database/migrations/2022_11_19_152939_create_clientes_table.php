@@ -22,6 +22,8 @@ class CreateClientesTable extends Migration
             $table->string('Edad_ACliente', 200)->nullable();
             $table->string('Suscripcion_Cliente', 200)->nullable();
             $table->date('Fecha_Pago_Cliente')->nullable();
+            $table->date('Fecha_Vence_Pago_Cliente')->nullable();
+            $table->boolean('Estado')->nullable();
             $table->float('Peso_Cliente', 10, 0)->nullable();
             $table->float('Estatura_Cliente', 10, 0)->nullable();
             $table->float('IMC_Cliente', 10, 0)->nullable();

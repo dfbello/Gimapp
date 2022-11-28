@@ -10,6 +10,23 @@
         </div>
     </div>
 
+    <!--<div class="row mx-5">
+        <div class="col">
+            <p class="text-light bg-success rounded p-3">Usuario creado con éxito</p>
+        </div>
+    </div>-->
+
+    <div class="row mx-5 my-3">
+        <div class="col">
+            <form class="d-flex flex-row">
+                <input type="text" class="form-control col-4 mx-1" id="name" name="name" placeholder="ingrese su nombre" value="{{old('name')}}">
+                <input type="number" class="form-control col-4 mx-1" id="cedula" name="cedula" placeholder="ingrese su cedula" value="{{old('cedula')}}">
+                <button type= "submit" class="btn btn-secondary col-4 mx-1">Filtrar</button>
+            </form>
+        </div>
+    </div>
+    
+    
     <div class="row px-5">
         <div class="col">
             <table class="table table-hover">

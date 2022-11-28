@@ -12,7 +12,9 @@ class RegisterController extends Controller
 {
 
     public function create(){
-        return view('auth.register');
+        return view('auth.register',[
+            'user' =>''
+        ]);
     }
 
     public function store(Request $request){
@@ -37,6 +39,21 @@ class RegisterController extends Controller
         $cliente->Edad_ACliente = $request->get('edad');
         $cliente->Suscripcion_Cliente = $request->get('plan');
         $cliente->Fecha_Pago_Cliente = date('Y-m-d');
+        $fvp = date('Y-m-d',strtotime(date('Y-m-d')."+ 1 month")); 
+         
+        if($request->get('plan') == 'mensual'){
+            $fvp = date('Y-m-d',strtotime(date('Y-m-d')."+ 1 month")); 
+        }elseif($request->get('plan') == 'trimestral'){
+            $fvp = date('Y-m-d',strtotime(date('Y-m-d')."+ 3 month")); 
+        }elseif($request->get('plan') == 'semestral'){
+            $fvp = date('Y-m-d',strtotime(date('Y-m-d')."+ 6 month"));  
+        }elseif($request->get('plan') == 'anual'){
+            $fvp = date('Y-m-d',strtotime(date('Y-m-d')."+ 12 month"));  
+        }
+
+        $cliente->Fecha_Vence_Pago_Cliente =$fvp;
+
+        $cliente -> Estado = true; 
         
         $cliente->save();
         
@@ -44,7 +61,9 @@ class RegisterController extends Controller
 
         $user = User::create(request(['name', 'email', 'password']))->assignRole('Client');
 
-        return redirect()->to('/login');
+        return view('auth.register',[
+            'user' =>$user
+        ]);
         
     }
 }

@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Juan Sanchez',
             'email' => 'admin@gimapp.com',
-            'password' => 'pass'
+            'password' => 'nana'
         ])->assignRole('Admin');
 
         Administrador::create([
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Juanito perez',
             'email' => 'trainer@gimapp.com',
-            'password' => 'pass'
+            'password' => 'nana'
         ])->assignRole('Trainer');
 
         Entrenador::create([
@@ -53,7 +53,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Julian Sanchez',
             'email' => 'cliente@correo.com',
-            'password' => 'pass'
+            'password' => 'nana'
         ])->assignRole('Client');
 
         Cliente::create([
@@ -64,7 +64,9 @@ class UserSeeder extends Seeder
             'Correo_Cliente' => 'cliente@correo.com',
             'Edad_ACliente' => '21',
             'Suscripcion_Cliente' => 'trimestral',
-            'Fecha_Pago_Cliente' => '2022-10-15'
+            'Fecha_Pago_Cliente' => '2022-10-15',
+            'Fecha_Vence_Pago_Cliente' => '2023-01-15',
+            'Estado' => '1'
         ]);
     }
 }

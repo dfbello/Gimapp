@@ -24,10 +24,19 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $nombre = strval($request->get('name'));
+        $cedula = $request->get('cedula');
+        $clientes = Cliente::all();
+
+        if($request->get('name') || $request->get('cedula')){
+            $sql = "SELECT * FROM `clientes` WHERE `Nombre_Cliente` LIKE ?  OR `Clave_Cliente` LIKE ?";
+            $clientes = DB::select($sql,array($nombre, $cedula));
+        }
         return view('cliente.index',[
-            'clientes' => Cliente::all()
+            'clientes' => $clientes,
+            'user' =>''
         ]);
     }
 

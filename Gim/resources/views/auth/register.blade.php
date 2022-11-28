@@ -5,10 +5,18 @@
 @section('content')
 
 <div class="form-signin w-100 m-auto mt-3 bg-light" style="height: 100vh;">
+
+    @if($user)
+    <div class="row mx-5">
+        <div class="col">
+            <p class="text-light bg-success rounded p-3">Usuario {{$user->name}} creado con éxito</p>
+        </div>
+    </div>
+    @endif
     <form action="" method="POST">
         @csrf
 
-        <h1 class="h3 mb-3 fw-normal text-center">Registro</h1>
+        <h1 class="h3 my-3 fw-normal text-center">Registro</h1>
         <div class="form-floating w-50 m-auto">
             <input type="text" class="form-control w-" id="name" name="name" placeholder="ingrese su nombre" value="{{old('name')}}">
             <label for="name"> Nombre</label>
