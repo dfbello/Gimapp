@@ -121,6 +121,11 @@ class rutinaController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $validData = $request->validate([
+            'Objetivo' => 'required',
+            'nivel' => 'required'
+        ]);
         $rutina = Rutina::findOrFail($id);
         $rutina->Objetivo=$request->get('Objetivo');
         $rutina->nivel=$request->get('nivel');

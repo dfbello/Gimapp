@@ -57,6 +57,18 @@
         <button type= "submit" value="Editar" class=" w-50 btn btn-lg btn-primary m-auto mt-3 mr-1" >Guardar Cambios</button>
         <a href="/rutinas" class="w-50 btn btn-lg btn-outline-danger m-auto mt-3" role="button">Descartar Cambios</a>
     </div>
+
+    @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>
+                            {{$error}}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </form>
 </div>
 @endsection
