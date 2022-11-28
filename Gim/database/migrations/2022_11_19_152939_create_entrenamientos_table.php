@@ -18,7 +18,7 @@ class CreateEntrenamientosTable extends Migration
             $table->integer('Clave_ClienteFK2')->nullable()->index('fk_fClienteFK2');
             $table->integer('Clave_RutinaFK2')->nullable()->index('fk_fRutinaFK2');
             $table->string('hora', 20)->nullable();
-            $table->date('fecha')->nullable();
+            $table->integer('dia')->nullable();
             $table->timestamps();
         });
     }

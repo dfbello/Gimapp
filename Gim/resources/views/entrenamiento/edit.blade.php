@@ -4,20 +4,15 @@
 @section('content')
 <div class="row">
     <div class="col">
-        <h1 class="text-center">Editar ejercicio {{$ejercicio->Clave_Ejercicio}}</h1>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col">
-        
+        <h1 class="text-center">Asignar horario de entrenamientos</h1>
     </div>
 </div>
 
 <div class="row justify-content-center">
     <div class="col-6">
-        <a class="btn btn-secondary mb-3" href="/ejercicio">Back</a>
-        <form action="/ejercicio/{{$ejercicio->Clave_Ejercicio}}" method="POST">
+        <a class="btn btn-secondary mb-3" href="/perfil">Back</a>
+        @foreach($entrenamientos as $entrenamiento)
+        <form action="/entrenamiento/{{$entrenamiento->Clave_Entrenamiento}}" method="POST">
             @csrf
             @method('put')
             @if($errors->any())
@@ -31,29 +26,29 @@
                     </ul>
                 </div>
             @endif
+                <div>
+                    <h3>Día: {{($loop->index)+1}}</h3>
+                </div>
                 <div class="m-auto">
-                    <label for="Descripcion_Ejercicio">Descripcion del Ejercicio</label>
-                    <input type="text" class="form-control" id="Descripcion_Ejercicio" name="Descripcion_Ejercicio" placeholder="Agregue la Descripcion del Ejercicio" value="{{$ejercicio->Descripcion_Ejercicio}}">
-                </div>
-                <div class="m-auto mt-2">
-                    <label for="Series_Ejercicio">Series del Ejercicio</label>
-                    <input type="number" class="form-control" id="Series_Ejercicio" name="Series_Ejercicio" placeholder="Agregue el numero de series" value="{{$ejercicio->Series_Ejercicio}}">
-                </div>
-                <div class="m-auto mt-2">
-                    <label for="Repeticiones_Ejercicio">Repeticiones del Ejercicio</label>
-                    <input type="number" class="form-control" id="Repeticiones_Ejercicio" name="Repeticiones_Ejercicio" placeholder="Agregue el numero de repeticiones" value="{{$ejercicio->Repeticiones_Ejercicio}}">
-                </div>
-                <div class=" m-auto mt-2">
-                    <label for="recurso ">Recurso utilizado</label>
-                    <select name="recurso" id="recurso" class= "form-control">
+                    <label for="dia">Día</label>
+                    <select name="dia" id="dia" class= "form-control">
                         <option value="">Ninguno</option>
-                        @foreach($recursos as $recurso)
-                        <option value="{{$recurso->Clave_Recurso}}">{{$recurso->Nombre_Recurso}}</option>
-                        @endforeach
+                        <option value="1">lunes</option>
+                        <option value="2">martes</option>
+                        <option value="3">miércoles</option>
+                        <option value="4">jueves</option>
+                        <option value="5">viernes</option>
+                        <option value="6">sábado</option>
+                        <option value="0">domingo</option>
                     </select>
                 </div>
-            <button class="btn btn-lg btn-primary m-auto mt-3" style="display: block; font-size:16px;">Registrar Ejercicio</button>
+                <div class="m-auto mt-2">
+                    <label for="hora">Series del Ejercicio</label>
+                    <input type="time" class="form-control" id="hora" name="hora" placeholder="Agregue el numero de series" value="{{$entrenamiento->hora}}">
+                </div>
+            <button class="btn btn-lg btn-primary m-auto mt-3" style="display: block; font-size:16px;">Asignar</button>
         </form>
+        @endforeach
     </div>
 </div>
 @endsection

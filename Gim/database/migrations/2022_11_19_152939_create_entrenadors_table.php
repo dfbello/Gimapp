@@ -20,7 +20,6 @@ class CreateEntrenadorsTable extends Migration
             $table->string('Direccion_Entrenador', 200)->nullable();
             $table->string('Correo_Entrenador', 50)->nullable();
             $table->string('Edad_Entrenador', 200)->nullable();
-            $table->string('Contrasenia_Entrenador', 200)->nullable();
             $table->string('Descripcion_Entrenador', 200)->nullable();
             $table->string('Horario_Entrenador', 200)->nullable();
             $table->timestamps();

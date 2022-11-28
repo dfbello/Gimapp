@@ -20,7 +20,6 @@ class CreateAdministradorsTable extends Migration
             $table->string('Direccion_Administrador', 200)->nullable();
             $table->string('Correo_Administrador', 50)->nullable();
             $table->string('Edad_Administrador', 200)->nullable();
-            $table->string('Contrasenia_Administrador', 200)->nullable();
             $table->timestamps();
         });
     }

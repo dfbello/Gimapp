@@ -67,10 +67,35 @@ class entrenamientoController extends Controller
 
         $rutinas = $request->input("seleccionado");
         foreach ($rutinas as $rutina){
-            $entrenamiento = new Entrenamiento();
-            $entrenamiento->Clave_ClienteFK2 =$request->get('cliente');;
-            $entrenamiento->Clave_RutinaFK2 =$rutina;
-            $entrenamiento->save();
+            $rutinaa = DB::table('rutinas')->where('Clave_Rutina',$rutina)->first();
+            if($rutinaa->nivel=='basico'){
+                $entrenamiento = new Entrenamiento();
+                $entrenamiento->Clave_ClienteFK2 =$request->get('cliente');;
+                $entrenamiento->Clave_RutinaFK2 =$rutina;
+                $entrenamiento->save();
+                $entrenamiento = new Entrenamiento();
+                $entrenamiento->Clave_ClienteFK2 =$request->get('cliente');;
+                $entrenamiento->Clave_RutinaFK2 =$rutina;
+                $entrenamiento->save();
+                $entrenamiento = new Entrenamiento();
+                $entrenamiento->Clave_ClienteFK2 =$request->get('cliente');;
+                $entrenamiento->Clave_RutinaFK2 =$rutina;
+                $entrenamiento->save();
+            }elseif($rutinaa->nivel=='medio'){
+                $entrenamiento = new Entrenamiento();
+                $entrenamiento->Clave_ClienteFK2 =$request->get('cliente');;
+                $entrenamiento->Clave_RutinaFK2 =$rutina;
+                $entrenamiento->save();
+                $entrenamiento = new Entrenamiento();
+                $entrenamiento->Clave_ClienteFK2 =$request->get('cliente');;
+                $entrenamiento->Clave_RutinaFK2 =$rutina;
+                $entrenamiento->save();
+            }else{
+                $entrenamiento = new Entrenamiento();
+                $entrenamiento->Clave_ClienteFK2 =$request->get('cliente');;
+                $entrenamiento->Clave_RutinaFK2 =$rutina;
+                $entrenamiento->save();
+            }
         }
 
         return redirect('/cliente');
@@ -93,9 +118,12 @@ class entrenamientoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function asignarFechas($id)
     {
-        //
+        $entrenamientos = DB::table('entrenamientos')->where('Clave_ClienteFK2',$id)->get();
+        return view('entrenamiento.edit',[
+            'entrenamientos' => $entrenamientos
+        ]);
     }
 
     /**
@@ -107,7 +135,11 @@ class entrenamientoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $entrenamiento = Entrenamiento::findOrFail($id);
+        $entrenamiento->hora =$request->get('hora');
+        $entrenamiento->dia =$request->get('dia');
+        $entrenamiento->save();
+
     }
 
     /**

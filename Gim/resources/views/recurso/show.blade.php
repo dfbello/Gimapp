@@ -14,11 +14,10 @@
     @csrf
         
         <div class="form-floating w-50 m-auto">
-            <input type="datetime-local" class="form-control w-" id="datetime" name = "datetime" value = "{{old('datetime')}}" >
+            <input type="date" class="form-control w-" id="datetime" name = "datetime" value = "{{old('datetime')}}" >
             <label for="datetime">Seleccione una Fecha</label>
         </div>
-
-
+        
         <div class= "row justify-content-center w-50 m-auto mt-3">
             <button type= "submit" class="w-50 btn btn-lg btn-primary m-auto" >Mostrar</button>
             <a href="/recursos" class="w-50 btn btn-lg btn-outline-danger m-auto mt-3" role="button">Regresar</a>

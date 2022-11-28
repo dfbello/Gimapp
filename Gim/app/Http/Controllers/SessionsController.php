@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Progreso;
 use App\Models\Entrenamiento;
+use App\Models\Rutina;
 
 class SessionsController extends Controller
 {
@@ -15,18 +16,32 @@ class SessionsController extends Controller
         $nombre = Auth::user();
         $cliente = DB::table('clientes')->where('Correo_Cliente',$nombre->email)->first();
         if($cliente){
-            $entrenamientos = Entrenamiento::where('Clave_ClienteFK2','=',$cliente->Clave_Cliente)->get();
+            $sql = "SELECT DISTINCT `Clave_RutinaFK2` FROM `entrenamientos` WHERE `Clave_ClienteFK2` = ?";
+            $entrenamientos = DB::select($sql,array($cliente->Clave_Cliente));
+            $rutinas = Rutina::all();
+            /*
+            $entrenamientos = Entrenamiento::where('Clave_ClienteFK2','=',$cliente->Clave_Cliente)->orderBy('Clave_RutinaFK2')->get();*/
             $valoraciones = DB::table('progresos')->where('Clave_ClienteFK4',$cliente->Clave_Cliente)->get();
             return view('perfil.cliente', [
                 'cliente'=> $cliente, 
+                'rutinas' => $rutinas,
                 'entrenamientos' => $entrenamientos,
                 'valoraciones' => $valoraciones
             ]);
         }else{
             $cliente = DB::table('entrenadors')->where('Correo_Entrenador',$nombre->email)->first();
-            return view('perfil.entrenador', [
-                'cliente'=> $cliente
-            ]);
+            
+            if($cliente){
+                return view('perfil.entrenador', [
+                    'cliente'=> $cliente
+                ]);
+            }else{
+                $cliente = DB::table('administradors')->where('Correo_Administrador',$nombre->email)->first();
+                return view('perfil.admin', [
+                    'cliente'=> $cliente
+                ]);
+            }
+            
         }
         
     }

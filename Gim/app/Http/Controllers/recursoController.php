@@ -85,10 +85,10 @@ class RecursoController extends Controller
 
         
         if($request->get('datetime') === null){
-            $date=date("Y-m-d");
+            $date=date("w");
         }else{
             $date=strtotime($request->get('datetime'));
-            $date=date("Y-m-d",$date);
+            $date=date("w",$date);
         }
         Log::info($date);
 
@@ -119,7 +119,7 @@ class RecursoController extends Controller
                         foreach($entrenamientos as $entrenamiento){
                             $hour=strtotime($entrenamiento->hora);
                             $hour=date('H',$hour);
-                            if($entrenamiento->Clave_RutinaFK2 === $asignado->Clave_RutinaFK1 and $date === $entrenamiento->fecha){
+                            if($entrenamiento->Clave_RutinaFK2 === $asignado->Clave_RutinaFK1 and $date === $entrenamiento->dia){
                                 if($hour>=21){
                                     $a21=$a21+1;
                                 }elseif($hour>=20){

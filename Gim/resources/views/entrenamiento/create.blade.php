@@ -8,10 +8,49 @@
     </div>
 </div>
 
+@if($cliente->Objetivos_Cliente)
+<div class="row justify-content-center px-5">
+    <div class="col-6">
+        <p class="" style="font-size: 25px; font-weight: lighter; ">
+            <strong>Objetivo:</strong> {{$cliente->Objetivos_Cliente }}
+        </p>
+        <p class="" style="font-size: 25px; font-weight: lighter; ">
+            <strong>Peso:</strong> {{$cliente->Peso_Cliente }} kg
+        </p>
+    </div>
+    <div class="col-6" >
+        <p class="" style="font-size: 25px; font-weight: lighter; ">
+            <strong>Estatura:</strong> {{$cliente->Estatura_Cliente }} m
+        </p>
+        <p class="" style="font-size: 25px; font-weight: lighter; ">
+            <strong>IMC: </strong> {{$cliente->IMC_Cliente}} @if($cliente->IMC_Cliente < 18.5)
+            <a class="btn btn-secondary btn-sm">peso insuficiente</a>
+            @elseif ($cliente->IMC_Cliente > 18.5 && $cliente->IMC_Cliente < 24.9)
+            <a class="btn btn-success btn-sm">peso normal</a>
+            @elseif ($cliente->IMC_Cliente > 25.0 && $cliente->IMC_Cliente < 29.9)
+            <a class="btn btn-warning btn-sm">sobrepeso</a>
+            @elseif ($cliente->IMC_Cliente >= 30.0)
+            <a class="btn btn-danger btn-sm">obesidad</a>
+            @endif
+        </p>
+    </div>
+</div>
+@else
+    <div class="row">
+        <div class="col">
+            <p class="mx-5" style="font-size: 25px; font-weight: lighter; ">
+                Requiere realizar valoración
+            </p>
+        </div>
+    </div>
+@endif
+
+
 <div class="row justify-content-center">
     <div class="col-12 px-5">
         <a class="btn btn-secondary mb-3" href="/cliente">Back</a>
 
+        @if($cliente->Objetivos_Cliente)
         <form> 
             <select name="objetivo" id="objetivo" class="form-control col-4 d-inline">
                 <option value="" disabled selected hidden>Seleccione un objetivo</option>
@@ -81,6 +120,7 @@
             </div>
             <button class="btn btn-lg btn-primary m-auto" style="display: block; font-size:16px; margin-top: 10px;">Asignar Entrenamiento</button>
         </form>
+        @endif
     </div>
 </div>
 @endsection

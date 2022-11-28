@@ -20,8 +20,8 @@ Route::get('/', function () {
 
 Route::get('/login', [SessionsController::class, 'create']) -> name('login.create')->middleware('guest');
 Route::get('/perfil', [SessionsController::class, 'index']) -> name('login.index')->middleware('auth');
-Route::get('/register', [RegisterController::class, 'create']) -> name('register.index')->middleware('can:trainer.admin');;
-Route::post('/register',[RegisterController::class, 'store']) -> name('register.store')->middleware('can:trainer.admin');;
+Route::get('/register', [RegisterController::class, 'create']) -> name('register.index')->middleware('can:trainer.admin');
+Route::post('/register',[RegisterController::class, 'store']) -> name('register.store')->middleware('can:trainer.admin');
 Route::post('/login', [SessionsController::class, 'store']) -> name('login.store');
 Route::get('/logout', [SessionsController::class, 'destroy']) -> name('login.destroy');
 Route::resource('/cliente', ClienteController::class);
@@ -31,8 +31,9 @@ Route::resource('/rutinas', rutinaController::class);
 Route::resource('/recursos', recursoController::class);
 Route::resource('/group_class', groupClassController::class);
 Route::resource('/entrenador', EntrenadorController::class);
-Route::post('/group_class/{id}/inscribirse',[groupClassController::class,'inscribirCliente']);
+Route::post('/group_class/{id}/inscribirse',[groupClassController::class,'inscribirCliente'])->middleware('can:cliente');
 Route::resource('/anuncios', AnuncioController::class);
-Route::resource('/cantusuarios', CantUsuariosController::class);
-Route::get('/cliente/{id}/asignarEntrenamiento',[ClienteController::class,'asignarEntrenamiento']);
+Route::resource('/cantusuarios', CantUsuariosController::class)->middleware('auth');
+Route::get('/cliente/{id}/asignarEntrenamiento',[ClienteController::class,'asignarEntrenamiento'])->middleware('can:trainer.admin');
+Route::get('/entrenamiento/{id}/asignarFechas',[entrenamientoController::class,'asignarFechas'])->middleware('can:cliente');
 
