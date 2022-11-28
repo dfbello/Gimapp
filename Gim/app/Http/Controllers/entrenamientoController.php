@@ -140,6 +140,10 @@ class entrenamientoController extends Controller
         $entrenamiento->dia =$request->get('dia');
         $entrenamiento->save();
 
+        $entrenamientos = DB::table('entrenamientos')->where('Clave_ClienteFK2',$entrenamiento->Clave_ClienteFK2)->get();
+        return view('entrenamiento.edit',[
+            'entrenamientos' => $entrenamientos
+        ]);
     }
 
     /**
