@@ -36,4 +36,5 @@ Route::resource('/anuncios', AnuncioController::class);
 Route::resource('/cantusuarios', CantUsuariosController::class)->middleware('auth');
 Route::get('/cliente/{id}/asignarEntrenamiento',[ClienteController::class,'asignarEntrenamiento'])->middleware('can:trainer.admin');
 Route::get('/entrenamiento/{id}/asignarFechas',[entrenamientoController::class,'asignarFechas'])->middleware('can:cliente');
+Route::get('/verificar',[ClienteController::class,'verificar']);
 

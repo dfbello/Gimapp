@@ -15,12 +15,11 @@ class SessionsController extends Controller
     public function index(){
         $nombre = Auth::user();
         $cliente = DB::table('clientes')->where('Correo_Cliente',$nombre->email)->first();
+
         if($cliente){
             $sql = "SELECT DISTINCT `Clave_RutinaFK2` FROM `entrenamientos` WHERE `Clave_ClienteFK2` = ?";
             $entrenamientos = DB::select($sql,array($cliente->Clave_Cliente));
             $rutinas = Rutina::all();
-            /*
-            $entrenamientos = Entrenamiento::where('Clave_ClienteFK2','=',$cliente->Clave_Cliente)->orderBy('Clave_RutinaFK2')->get();*/
             $valoraciones = DB::table('progresos')->where('Clave_ClienteFK4',$cliente->Clave_Cliente)->get();
             return view('perfil.cliente', [
                 'cliente'=> $cliente, 
@@ -52,6 +51,15 @@ class SessionsController extends Controller
 
     public function store() {
         $credentials = request()->only('email', 'password');
+        $cliente = DB::table('clientes')->where('Correo_Cliente',request()->only('email'))->first();
+        $message = 'Correo o contraseña incorrectos, intente de nuevo';
+        if($cliente){
+            if($cliente->Estado == 0){
+                return back() -> withErrors([
+                    'message' => 'membresia vencida, favor acercate al gimnasio para renovarla'
+                ]);
+            }
+        }
 
         if(auth()->attempt($credentials)){
             request()->session()->regenerate();
@@ -59,7 +67,7 @@ class SessionsController extends Controller
             return redirect('perfil');
         }else{
             return back() -> withErrors([
-                'message' => 'Correo o contraseña incorrectos, intente de nuevo'
+                'message' => $message
             ]);
         }
 

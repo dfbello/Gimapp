@@ -35,9 +35,22 @@ class ClienteController extends Controller
             $clientes = DB::select($sql,array($nombre, $cedula));
         }
         return view('cliente.index',[
-            'clientes' => $clientes,
-            'user' =>''
+            'clientes' => $clientes
         ]);
+    }
+
+    public function verificar(){
+        $clientes = Cliente::all();
+        foreach($clientes as $cliente){
+            $fecha_membresia = strtotime($cliente->Fecha_Vence_Pago_Cliente);
+            $fecha_actual = strtotime(date('Y-m-d'));
+            if($fecha_membresia < $fecha_actual){
+                $cliente->Estado = 0;
+                $cliente->save();
+            }
+        }
+
+        return redirect('/cliente');
     }
 
     public function asignarEntrenamiento(Request $request, $id)

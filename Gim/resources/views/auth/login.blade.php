@@ -15,17 +15,14 @@
         <div class="form-floating w-50 m-auto mt-2">
             <input type="password" class="form-control" id="password" name="password" placeholder="ingrese su contraseña">
             <label for="password"> Contraseña</label>
-        </div>
-
-        
-        <p class="text-danger text-center">
-            @foreach ($errors->all() as $error)
-                {{$error}}
-            @endforeach
-        </p>
-       
+        </div>   
 
         <button type="submit" class="w-50 btn btn-lg btn-primary mt-3 m-auto" style="display:block;">Entrar</button>
+        @foreach ($errors->all() as $error)
+        <p class="alert alert-danger m-auto w-50">
+            {{$error}}
+        </p>
+        @endforeach
     </form>
     
 </div>

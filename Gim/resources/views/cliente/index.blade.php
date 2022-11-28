@@ -17,16 +17,20 @@
     </div>-->
 
     <div class="row mx-5 my-3">
-        <div class="col">
+        <div class="col-9">
             <form class="d-flex flex-row">
                 <input type="text" class="form-control col-4 mx-1" id="name" name="name" placeholder="ingrese su nombre" value="{{old('name')}}">
                 <input type="number" class="form-control col-4 mx-1" id="cedula" name="cedula" placeholder="ingrese su cedula" value="{{old('cedula')}}">
-                <button type= "submit" class="btn btn-secondary col-4 mx-1">Filtrar</button>
+                <button type= "submit" class="btn btn-secondary col-4 mx-1">Buscar</button>
             </form>
         </div>
+        <div class="col-3">
+            <a class="w-100 btn btn-primary" href="/verificar">Verificar Membresia</a>
+        </div>
     </div>
+
     
-    
+    @if($clientes)
     <div class="row px-5">
         <div class="col">
             <table class="table table-hover">
@@ -40,7 +44,11 @@
                     </tr>
                 </thead>
                 @foreach ($clientes as $cliente)
-                <tr>
+                @if($cliente->Estado == 0)
+                <tr class="alert alert-danger">
+                @else
+                <tr>  
+                @endif
                     <td>{{$cliente->Clave_Cliente}}</td>
                     <td>{{$cliente->Nombre_Cliente}}</td>
                     <td>{{$cliente->Edad_ACliente }}</td>
@@ -51,5 +59,9 @@
             </table>
         </div>
     </div>
+
+    @else
+        <p class="text-info text-center" style="font-size: 20px">No se encontraron resultados</p>
+    @endif
 </div>
 @endsection
