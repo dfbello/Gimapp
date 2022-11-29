@@ -120,9 +120,12 @@ class entrenamientoController extends Controller
      */
     public function asignarFechas($id)
     {
-        $entrenamientos = DB::table('entrenamientos')->where('Clave_ClienteFK2',$id)->get();
+        $entrenamientos = Entrenamiento::all()->where('Clave_ClienteFK2',$id);
+        $entre = Entrenamiento::all()->where('Clave_ClienteFK2',$id)->first();
+        $nivel = $entre->rutina->nivel;
         return view('entrenamiento.edit',[
-            'entrenamientos' => $entrenamientos
+            'entrenamientos' => $entrenamientos,
+            'nivel' => $nivel
         ]);
     }
 
@@ -135,15 +138,30 @@ class entrenamientoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validData = $request->validate([
+            'hora' => 'required',
+            'dia' => 'required'
+        ]);
+
+        $entrenamiento = Entrenamiento::findOrFail($id);
+        $entrenamientos = Entrenamiento::all()->where('Clave_ClienteFK2',$entrenamiento->Clave_ClienteFK2);
+
+        if($entrenamientos){
+            foreach($entrenamientos as $e){
+                if(intval($e->dia) == intval($request->get('dia'))){
+                    return back() -> withErrors([
+                        'message' => 'Día ya asignado. Recuerda hacer un entrenamiento por día'
+                    ]);
+                }
+            }
+        }
+        
+
         $entrenamiento = Entrenamiento::findOrFail($id);
         $entrenamiento->hora =$request->get('hora');
         $entrenamiento->dia =$request->get('dia');
         $entrenamiento->save();
-
-        $entrenamientos = DB::table('entrenamientos')->where('Clave_ClienteFK2',$entrenamiento->Clave_ClienteFK2)->get();
-        return view('entrenamiento.edit',[
-            'entrenamientos' => $entrenamientos
-        ]);
+        return redirect('entrenamiento/'.$entrenamiento->Clave_ClienteFK2.'/asignarFechas');
     }
 
     /**

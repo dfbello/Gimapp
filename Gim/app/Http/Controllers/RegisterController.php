@@ -61,9 +61,7 @@ class RegisterController extends Controller
 
         $user = User::create(request(['name', 'email', 'password']))->assignRole('Client');
 
-        return view('auth.register',[
-            'user' =>$user
-        ]);
+        return redirect('/register');
         
     }
 }
