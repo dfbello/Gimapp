@@ -9,7 +9,24 @@
         </div>
 </div>
 
-<div class="form-group-class w-100 m-auto mt-3">
+@can('cliente')
+<div class="row mx-5">
+    <div class="col">
+        <a class="btn btn-secondary" href="/perfil">Regresar</a>
+    </div>
+</div>
+@endcan
+
+@can('trainer.admin')
+<div class="row mx-5">
+    <div class="col">
+        <a class="btn btn-secondary" href="/recursos">Regresar</a>
+    </div>
+</div>
+@endcan
+
+@can('trainer.admin')
+<div class="form-group-class w-100 m-auto my-3">
     <form action="/recursos/{{$recurso->Clave_Recurso}}" method = "SHOW">
     @csrf
         
@@ -25,6 +42,7 @@
     </form>
     
 </div>
+@endcan
 
 <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
 
@@ -65,7 +83,7 @@ $arrLabelValueData = array();
     // Render the chart
     $Chart->render();
     ?>
-    <center>
+    <center class="mt-3">
         <div id="chart-container">Chart will render here!</div>
     </center>
 

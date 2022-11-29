@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rutina;
+use App\Models\Recurso;
 use App\Models\Ejercicio;
 use App\Models\Asignado;
 use App\Models\Entrenamiento;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 
 class rutinaController extends Controller

@@ -24,8 +24,8 @@
     </div>
     
     
-    <div class="d-flex flex-row mx-5 w-100">
-        <div class="col-9 mx-1">
+    <div class="d-flex flex-row w-100">
+        <div class="col-9">
             <div class="d-flex flex-column">
             @foreach($rutina->ejercicios as $ejercicio)
                     <div class="p-3 border m-2 text-bg-dark rounded-3">
@@ -68,6 +68,9 @@
                                                     </div>
                                                 </div>
                                             </td>
+                                            <td>
+                                                <a href="/recursos/{{$ejercicio->Clave_RecursoFK1}}" class="btn btn-sm btn-outline-light">Uso</a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -80,7 +83,7 @@
 
 
 
-        <div class="col-3 mx-1">
+        <div class="col-3">
             <div class="w-100 h-100 p-4 text-bg-dark rounded-3 m-0">
                 <h6 class="text-primary">Informacion sobre la rutina</h6>
                 <div class="row justify-between">
@@ -141,7 +144,7 @@
             $("#cartoonVideo").attr('src', url);
         });
 
-
+    }
 </script>
 
 @endsection

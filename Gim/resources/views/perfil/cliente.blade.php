@@ -123,7 +123,7 @@
 
     @else
 
-    <div class="row px-5">
+    <div class="row px-5 mb-5">
         <div class="col">
             <h3 class="">Aún no te han realizado una valoración</h3>
             <button type="button" class="btn btn-primary " style="">Programar valoración</button>

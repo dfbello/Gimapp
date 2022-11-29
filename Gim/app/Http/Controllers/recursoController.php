@@ -119,7 +119,7 @@ class RecursoController extends Controller
                         foreach($entrenamientos as $entrenamiento){
                             $hour=strtotime($entrenamiento->hora);
                             $hour=date('H',$hour);
-                            if($entrenamiento->Clave_RutinaFK2 === $asignado->Clave_RutinaFK1 and $date === $entrenamiento->dia){
+                            if($entrenamiento->Clave_RutinaFK2 === $asignado->Clave_RutinaFK1 and intval($date) === intval($entrenamiento->dia)){
                                 if($hour>=21){
                                     $a21=$a21+1;
                                 }elseif($hour>=20){

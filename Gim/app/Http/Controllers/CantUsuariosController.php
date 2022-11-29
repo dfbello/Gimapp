@@ -35,8 +35,8 @@ class CantUsuariosController extends Controller
         foreach($entrenamientos as $entrenamiento){
             $hour=strtotime($entrenamiento->hora);
             $hour=date('H',$hour);
-            $date=$entrenamiento->fecha;
-            $todayDate = date('Y-m-d');
+            $date=$entrenamiento->dia;
+            $todayDate = date('w');
             if($date==$todayDate){
                 if($hour>=21){
                     $a21=$a21+1;

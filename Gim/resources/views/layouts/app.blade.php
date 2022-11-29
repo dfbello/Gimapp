@@ -129,7 +129,7 @@
                     </ul>
                 </div>
             </header>
-            <div class="w-100 h-100 bg-light" >
+            <div class="w-100 h-100 bg-light p-4" style="border-sizing:border-box;" >
               @yield('content') 
             </div>
             
