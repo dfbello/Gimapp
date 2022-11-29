@@ -172,9 +172,12 @@ class entrenamientoController extends Controller
      */
     public function destroy($id)
     {
-        $entrenamiento = Entrenamiento::findOrFail($id);
-        $entrenamiento->delete();
+        $entrenamientos = Entrenamiento::all()->where('Clave_ClienteFK2',$id);
+        foreach($entrenamientos as $entrenamiento){
+            $entrenamiento->delete();
+        }
+        
 
-        return redirect('/entrenamiento');  
+        return redirect('/cliente/'.$id.'/asignarEntrenamiento');  
     }
 }

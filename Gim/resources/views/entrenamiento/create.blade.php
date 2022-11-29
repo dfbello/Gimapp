@@ -49,6 +49,32 @@
 <div class="row justify-content-center">
     <div class="col-12 px-5">
         <a class="btn btn-secondary mb-3" href="/cliente">Back</a>
+        <button type="button" class="btn btn-outline-danger btn-inline mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="{{$cliente->Clave_Cliente}}" id ="btn-delete">
+            Eliminar antigua rutina cliente
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Antiguos entrenamientos del cliente {{$cliente->Nombre_Cliente}}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <p>Realize esta acción solo si el cliente requiere de nuevas rutinas de entrenamiento, no olvide asignar una rutina inmediatamente</p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <form action="/entrenamiento/{{$cliente->Clave_Cliente}}/eliminar" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+                </div>
+            </div>
+            </div> 
+        </div>
 
         @if($cliente->Objetivos_Cliente)
         <form> 
@@ -123,4 +149,23 @@
         @endif
     </div>
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <script>
+        const exampleModal = document.getElementById('exampleModal')
+        exampleModal.addEventListener('show.bs.modal', event => {
+    // Button that triggered the modal
+            const button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+            const recipient = button.getAttribute('data-bs-whatever')
+    // If necessary, you could initiate an AJAX request here
+    // and then do the updating in a callback.
+    //
+    // Update the modal's content.
+            const modalTitle = exampleModal.querySelector('.modal-title')
+            const modalFooterForm = exampleModal.querySelector('.modal-footer form')
+        })
+    </script>
 @endsection

@@ -53,6 +53,31 @@ class ClienteController extends Controller
         return redirect('/cliente');
     }
 
+    public function renovarMembresia($id, Request $r){
+        $cliente = Cliente::findOrFail($id);
+        $cliente->Suscripcion_Cliente = $r->get('plan');
+        $cliente->Fecha_Pago_Cliente = date('Y-m-d');
+        $fvp = date('Y-m-d',strtotime(date('Y-m-d')."+ 1 month")); 
+        if($r->get('plan') == 'mensual'){
+            $fvp = date('Y-m-d',strtotime(date('Y-m-d')."+ 1 month")); 
+        }elseif($r->get('plan') == 'trimestral'){
+            $fvp = date('Y-m-d',strtotime(date('Y-m-d')."+ 3 month")); 
+        }elseif($r->get('plan') == 'semestral'){
+            $fvp = date('Y-m-d',strtotime(date('Y-m-d')."+ 6 month"));  
+        }elseif($r->get('plan') == 'anual'){
+            $fvp = date('Y-m-d',strtotime(date('Y-m-d')."+ 12 month"));  
+        }
+
+        $cliente->Fecha_Vence_Pago_Cliente =$fvp;
+
+        $cliente -> Estado = true; 
+        
+        $cliente->save();
+        return redirect('/cliente');
+    }
+
+    
+
     public function asignarEntrenamiento(Request $request, $id)
     {
         $objetivo = strval($request->get('objetivo'));

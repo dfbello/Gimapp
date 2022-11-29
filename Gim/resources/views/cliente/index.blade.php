@@ -41,6 +41,7 @@
                         <th>Edad</th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 @foreach ($clientes as $cliente)
@@ -54,6 +55,41 @@
                     <td>{{$cliente->Edad_ACliente }}</td>
                     <td><a class="btn btn-outline-primary btn-sm" href="/cliente/{{$cliente->Clave_Cliente}}/edit" role="button">Valoración</a></td>
                     <td><a class="btn btn-outline-primary btn-sm" href="/cliente/{{$cliente->Clave_Cliente}}/asignarEntrenamiento" role="button">Asignar Entrenamiento</a></td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" nombresito="{{$cliente->Nombre_Cliente}}"  data-bs-whatever="{{$cliente->Clave_Cliente}}" id ="btn-delete">
+                            Renovar Membresia
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Renovar membresia</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="renovarMembresia/{{$cliente->Clave_Cliente}}" method="POST">
+                                        @csrf
+                                        <div class="form-floating w-100 m-auto mt-2">
+                                            <select class="form-control" name="plan" id="plan">
+                                                <option value="anual">Anual</option>
+                                                <option value="semestral">Semestral</option>
+                                                <option value="trimestral">Trimestral</option>
+                                                <option value="mensual">Mensual</option>
+                                            </select>
+                                            <label for="plan"> Selecione su plan</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-success text-center">Renovar</button>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    
+                                </div>
+                            </div>
+                            </div> 
+                        </div>
+                    </td>
                 </tr>
                 @endforeach
             </table>
@@ -64,4 +100,25 @@
         <p class="text-info text-center" style="font-size: 20px">No se encontraron resultados</p>
     @endif
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+<script>
+    const exampleModal = document.getElementById('exampleModal')
+    exampleModal.addEventListener('show.bs.modal', event => {
+// Button that triggered the modal
+        const button = event.relatedTarget
+// Extract info from data-bs-* attributes
+        const recipient = button.getAttribute('data-bs-whatever')
+        const nombre = button.getAttribute('nombresito')
+// If necessary, you could initiate an AJAX request here
+// and then do the updating in a callback.
+//
+// Update the modal's content.
+        const modalTitle = exampleModal.querySelector('.modal-title')
+        modalTitle.textContent = `Revonvar membresia de ${nombre}`
+        const modalFooterForm = exampleModal.querySelector('.modal-body form')
+        modalFooterForm.setAttribute('action',`renovarMembresia/${recipient}`)
+    })
+</script>
 @endsection

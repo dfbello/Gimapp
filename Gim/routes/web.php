@@ -37,4 +37,5 @@ Route::resource('/cantusuarios', CantUsuariosController::class)->middleware('aut
 Route::get('/cliente/{id}/asignarEntrenamiento',[ClienteController::class,'asignarEntrenamiento'])->middleware('can:trainer.admin');
 Route::get('/entrenamiento/{id}/asignarFechas',[entrenamientoController::class,'asignarFechas'])->middleware('can:cliente');
 Route::get('/verificar',[ClienteController::class,'verificar']);
-
+Route::delete('entrenamiento/{id}/eliminar',[entrenamientoController::class,'destroy'])->middleware('can:trainer.admin');
+Route::post('/renovarMembresia/{id}',[ClienteController::class,'renovarMembresia']);
