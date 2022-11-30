@@ -93,6 +93,13 @@
                 </a>
               </li>
               @endcan
+              @can('cliente')
+              <li>
+                <a href="{{route('progreso.index')}}" class="nav-link text-white" id="btn-menu-lateral">
+                  Progreso
+                </a>
+              </li>
+              @endcan
             </ul>
         </div>
 
