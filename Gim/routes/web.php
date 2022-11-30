@@ -12,6 +12,7 @@ use App\Http\Controllers\recursoController;
 use App\Http\Controllers\EntrenadorController;
 use App\Http\Controllers\AnuncioController;
 use App\Http\Controllers\CantUsuariosController;
+use App\Http\Controllers\groupPersonalizadaController;
 
 
 Route::get('/', function () {
@@ -39,3 +40,6 @@ Route::get('/entrenamiento/{id}/asignarFechas',[entrenamientoController::class,'
 Route::get('/verificar',[ClienteController::class,'verificar']);
 Route::delete('entrenamiento/{id}/eliminar',[entrenamientoController::class,'destroy'])->middleware('can:trainer.admin');
 Route::post('/renovarMembresia/{id}',[ClienteController::class,'renovarMembresia']);
+
+Route::resource('/group_personalizada', groupPersonalizadaController::class);
+Route::post('/group_personalizada/{id}/inscribirse',[groupPersonalizadaController::class,'inscribirCliente'])->middleware('can:cliente');
